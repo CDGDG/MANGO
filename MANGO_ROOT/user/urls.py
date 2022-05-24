@@ -23,5 +23,6 @@ urlpatterns = [
     path('generic/', views.generic, name='generic'),
     path('likesinger/', views.likesinger, name='likesinger'),
     path('likesong/', views.likesong, name='likesong'),
-    path('login/', views.login, name='login')
+    path('myinfo/', views.myinfo, name='myinfo'),
+    path('login/', views.login, name='login'),
 ]
