@@ -21,8 +21,10 @@
 				<nav id="nav">
 					<ul>
 						<li class="current"><a href="index.html">Home</a></li>
+						<li><a href="{% url 'likesinger' %}">likesinger</a></li>
+						<li><a href="{% url 'likesong' %}">likesong</a></li>
 						<li>
-							<a href="#" class="dropdown">Dropdown</a>
+							<a href="{% url 'myinfo' %}" class="dropdown">MyInfo</a>
 							<ul>
 								<li><a href="#">Option One</a></li>
 								<li><a href="#">Option Two</a></li>
@@ -38,8 +40,6 @@
 								</li>
 							</ul>
 						</li>
-						<li><a href="{% url 'generic' %}">Generic</a></li>
-						<li><a href="{% url 'elements' %}">Elements</a></li>
 					</ul>
 				</nav>
 			</header>

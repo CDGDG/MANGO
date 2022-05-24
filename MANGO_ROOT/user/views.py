@@ -11,3 +11,15 @@ def elements(request):
 
 def generic(request):
     return render(request, 'generic.html')
+
+def likesinger(request):
+    return render(request, 'likesinger.html')
+
+def likesong(request):
+    return render(request, 'likesong.html')
+
+def myinfo(reqeust):
+    pass
+
+def login(request):
+    return render(request, 'login.html')
