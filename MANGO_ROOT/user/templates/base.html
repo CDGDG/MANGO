@@ -12,11 +12,6 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="/static/assets/css/main.css" />
-		<style>
-			ul.icons li {
-				float: left
-			}
-		</style>
 	</head>
 	<body class="is-preload">
 
@@ -64,7 +59,7 @@
 							<p>Sed egestas, ante et vulputate volutpat pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum lorem ipsum dolor sit amet consequat hendrerit tortor semper lorem at felis.</p>
 						</header>
 						<div class="content">
-							<ul class="icons">
+							<ul class="icons" style='width: 100%;'>
 								<li>
 									<span class="icon solid fa-home"></span>
 									<div>
@@ -80,7 +75,7 @@
 										<a href="mailto:information@domain.ext">information@domain.ext</a>
 									</div>
 								</li>
-								<li>
+								<li style='margin: 0 5px;'>
 									<span class="icon solid fa-phone"></span>
 									<div>
 										<strong>Phone</strong>
@@ -106,4 +101,19 @@
 
 	</body>
 	{% block script %}{% endblock  %}
+	<style>
+		ul.icons{
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+		
+		ul.icons li{
+			display: inline-block;
+			float: left;
+			height: 100%;
+			width: 33%;
+			margin: 0 5px;
+		}
+	</style>
 </html>
