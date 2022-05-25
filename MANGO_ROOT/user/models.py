@@ -1,30 +1,3 @@
 from tabnanny import verbose
 from django.db import models
 
-class User(models.Model):
-    userid = models.CharField(max_length=20, verbose_name='아이디')
-    password = models.CharField(max_length=500, verbose_name='비밀번호')
-
-    class Meta:
-        db_table = 'MANGO_user'
-        verbose_name = '유저'
-        verbose_names = '유저(들)'
-
-    def __str__(self):
-        return f'id{self.id}.{self.userid}'
-
-class Music_prefer(models.Model):
-    userpk = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='user')
-    preference = models.CharField(max_length=50, verbose_name='음악 분위기')
-
-    class Meta:
-        db_table = 'MANGO_music_prefer'
-        verbose_name = '선호 음악 분위기'
-        verbose_names = '선호 음악 분위기(들)'
-
-class Like_song(models.Model):
-    userpk = models.ForeignKey('user.User', on_delete=models.CASCADE, related_name='user')
-    song_num = models.IntegerField(verbose_name='곡 번호')
-
-    class Meta:
-        db_table = 'MANGO_like_song'

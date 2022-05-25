@@ -2,7 +2,23 @@
 
 {% block title %}login{% endblock  %}
 
-{% block content %}
+{% block contents %}
+<div class="inner" style='margin: 5rem 20rem'>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="fields">
+            <div class="field">
+                <input name="userid" id="userid" placeholder="아이디" type="text" />
+            </div>
+            <div class="field">
+                <input name="password" id="password" placeholder="비밀번호" type="password" />
+            </div>
+        </div>
+        <ul class="actions special">
+            <li><input type="submit" class="button" value="로그인" /></li>
+        </ul>
+    </form>
+</div>
 
 {% endblock %}
 

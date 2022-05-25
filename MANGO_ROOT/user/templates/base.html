@@ -12,6 +12,11 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="/static/assets/css/main.css" />
+		<style>
+			ul.icons li {
+				float: left
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -21,25 +26,28 @@
 				<nav id="nav">
 					<ul>
 						<li class="current"><a href="index.html">Home</a></li>
-						<li><a href="{% url 'likesinger' %}">likesinger</a></li>
-						<li><a href="{% url 'likesong' %}">likesong</a></li>
-						<li>
-							<a href="{% url 'myinfo' %}" class="dropdown">MyInfo</a>
-							<ul>
-								<li><a href="#">Option One</a></li>
-								<li><a href="#">Option Two</a></li>
-								<li><a href="#">Option Three</a></li>
-								<li>
-									<a href="#">Submenu</a>
-									<ul>
-										<li><a href="#">Option One</a></li>
-										<li><a href="#">Option Two</a></li>
-										<li><a href="#">Option Three</a></li>
-										<li><a href="#">Option Four</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
+						{% if request.session.id %}
+							{% comment %} <li>
+								<a href="{% url 'myinfo' %}" class="dropdown">MyInfo</a>
+								<ul>
+									<li><a href="#">Option One</a></li>
+									<li><a href="#">Option Two</a></li>
+									<li><a href="#">Option Three</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option One</a></li>
+											<li><a href="#">Option Two</a></li>
+											<li><a href="#">Option Three</a></li>
+											<li><a href="#">Option Four</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li> {% endcomment %}
+							<li><a href="{% url 'logout' %}">logout</a></li>
+						{% else %}
+							<li><a href="{% url 'login' %}">Login</a></li>
+						{% endif %}
 					</ul>
 				</nav>
 			</header>
@@ -56,24 +64,6 @@
 							<p>Sed egestas, ante et vulputate volutpat pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum lorem ipsum dolor sit amet consequat hendrerit tortor semper lorem at felis.</p>
 						</header>
 						<div class="content">
-							<div class="form">
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<input name="name" id="name" placeholder="Name" type="text" />
-										</div>
-										<div class="field half">
-											<input name="email" id="email" placeholder="Email" type="email" />
-										</div>
-										<div class="field">
-											<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<ul class="actions special">
-										<li><input type="button" class="button" value="Send Message" /></li>
-									</ul>
-								</form>
-							</div>
 							<ul class="icons">
 								<li>
 									<span class="icon solid fa-home"></span>
@@ -115,4 +105,5 @@
 			<script src="/static/assets/js/main.js"></script>
 
 	</body>
+	{% block script %}{% endblock  %}
 </html>
