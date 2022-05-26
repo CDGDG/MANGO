@@ -16,5 +16,9 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+app_name = 'Music'
+
 urlpatterns = [
+    path('top/', views.top, name='top'),
+    path('search/', views.search, name='search'),
 ]

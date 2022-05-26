@@ -12,9 +12,9 @@
 {% endblock  %}
 
 {% block contents %}
-{% comment %} <iframe src="/"></iframe> {% endcomment %}
+<iframe src="{% url 'Music:top' %}" style='width: 50%;height: 1000px;' id='iframe'></iframe>
 
-<div id="one">
+{% comment %} <div id="one">
     <div class="wrapper special">
         <div class="inner">
             <header class="major">
@@ -44,12 +44,5 @@
             </div>
         </div>
     </div>
-</div>
-{% endblock  %}
-{% block script %}
-<style>
-    td{
-        vertical-align: middle;
-    }
-</style>
+</div> {% endcomment %}
 {% endblock  %}
