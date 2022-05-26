@@ -11,13 +11,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="/static/assets/css/main.css" />
+		<link rel="stylesheet" href="/static/assets/css/main.css"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header" class="alt" style='padding:1rem;'>
-				<a style='display:flex;' class="logo" href="index.html"><img width='45' height='45' src="/static/images/MANGO.png" alt='MANGO'><p style='margin: auto;'>MANGO</p></a>
+				<a style='display:flex;' class="logo" href="/"><img width='45' height='45' src="/static/images/MANGO.png" alt='MANGO'><p style='margin: auto;'>MANGO</p></a>
 				<nav id="nav">
 					<ul>
 						<li class="current"><a href="index.html">Home</a></li>
@@ -39,13 +42,14 @@
 									</li>
 								</ul>
 							</li> {% endcomment %}
-							<li><a href="{% url 'logout' %}">logout</a></li>
+							<li><a href="{% url 'User:logout' %}">logout</a></li>
 						{% else %}
-							<li><a href="{% url 'login' %}">Login</a></li>
+							<li><a href="{% url 'User:login' %}">Login</a></li>
 						{% endif %}
 					</ul>
 				</nav>
 			</header>
+			{% block banner %}{% endblock  %}
 
             {% block contents %}{% endblock  %}
 

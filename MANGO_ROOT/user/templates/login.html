@@ -2,9 +2,19 @@
 
 {% block title %}login{% endblock  %}
 
+{% block banner %}
+<div id="banner">
+    <div class="wrapper style1 special">
+        <div class="inner">
+            <h1 class="heading alt" style="font-family: 'Dongle', sans-serif;">로 그 인  /  회 원 가 입</h1>
+        </div>
+    </div>
+</div>
+{% endblock  %}
+
 {% block contents %}
 <div class="inner" style='margin: 5rem 20rem'>
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" action="{% url 'User:login' %}">
         {% csrf_token %}
         <div class="fields">
             <div class="field">
@@ -15,11 +25,11 @@
             </div>
         </div>
         <ul class="actions special">
-            <li><input type="submit" class="button" value="로그인" /></li>
+            <li><input type="submit" class="button fit" value="로그인" /></li>
+            <li><a href="{% url 'User:join' %}" class="button fit">회원가입</a></li>
         </ul>
     </form>
 </div>
-
 {% endblock %}
 
 
