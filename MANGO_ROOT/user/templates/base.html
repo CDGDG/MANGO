@@ -23,26 +23,13 @@
 				<a style='display:flex;' class="logo" href="/"><img width='45' height='45' src="/static/images/MANGO.png" alt='MANGO'><p style='margin: auto;'>MANGO</p></a>
 				<nav id="nav">
 					<ul>
-						<li class="current"><a href="index.html">Home</a></li>
-						{% if request.session.id %}
-							{% comment %} <li>
-								<a href="{% url 'myinfo' %}" class="dropdown">MyInfo</a>
+						{% if request.session.user %}
+							<li>
+								<a class="dropdown">{{request.session.user.userid}}</a>
 								<ul>
-									<li><a href="#">Option One</a></li>
-									<li><a href="#">Option Two</a></li>
-									<li><a href="#">Option Three</a></li>
-									<li>
-										<a href="#">Submenu</a>
-										<ul>
-											<li><a href="#">Option One</a></li>
-											<li><a href="#">Option Two</a></li>
-											<li><a href="#">Option Three</a></li>
-											<li><a href="#">Option Four</a></li>
-										</ul>
-									</li>
+									<li><a href="{% url 'User:logout' %}">logout</a></li>
 								</ul>
-							</li> {% endcomment %}
-							<li><a href="{% url 'User:logout' %}">logout</a></li>
+							</li>
 						{% else %}
 							<li><a href="{% url 'User:login' %}">Login</a></li>
 						{% endif %}

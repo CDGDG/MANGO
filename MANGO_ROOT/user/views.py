@@ -37,8 +37,8 @@ def login(request):
             # 비밀번호 비교
             if check_password(password, user.password):
                 # 로그인 처리 (세션 사용)
-                request.session['user'] = user.id  
-                return redirect('/user/index/')   # 로그인 성공후 home 으로 redirect
+                request.session['user'] = {'id': user.id, 'userid': user.userid}
+                return redirect('/')   # 로그인 성공후 home 으로 redirect
             else:
                 # 비밀번호 불일치.  로그인 실패 처리
                 res_data['error'] = '비밀번호를 틀렸습니다'
@@ -46,7 +46,9 @@ def login(request):
         return render(request, 'login.html', res_data)
 
 def logout(request):
-    pass
+    if request.session.get('user'):
+        del(request.session['user'])
+    return redirect('/')
 
 def join(request):
     # 회원가입 처리
