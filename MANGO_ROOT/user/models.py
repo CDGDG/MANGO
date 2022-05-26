@@ -13,7 +13,7 @@ class User(models.Model):
         return f'id{self.id}.{self.userid}'
 
 class Music_prefer(models.Model):
-    userpk = models.ForeignKey('user.User', on_delete=models.CASCADE)
+    user = models.ForeignKey('user.User', on_delete=models.CASCADE)
     preference = models.CharField(max_length=50, verbose_name='음악 분위기')
 
     class Meta:
@@ -21,9 +21,9 @@ class Music_prefer(models.Model):
         verbose_name = '선호 음악 분위기'
         verbose_name_plural = '선호 음악 분위기(들)'
 
-class Like_song(models.Model):
-    userpk = models.ForeignKey('user.User', on_delete=models.CASCADE)
-    song_num = models.IntegerField(verbose_name='곡 번호')
+# class Like_song(models.Model):
+#     userpk = models.ForeignKey('user.User', on_delete=models.CASCADE)
+#     song_num = models.IntegerField(verbose_name='곡 번호')
 
-    class Meta:
-        db_table = 'MANGO_like_song'
+#     class Meta:
+#         db_table = 'MANGO_like_song'

@@ -1,7 +1,8 @@
+from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.hashers import make_password, check_password
-from .forms import LoginForm
-# from .models import User
+from .forms import LoginForm, JoinForm
+from .models import Music_prefer, User
 
 def base(request):
     return render(request, 'base.html')
@@ -46,3 +47,37 @@ def login(request):
 
 def logout(request):
     pass
+
+def join(request):
+    # 회원가입 처리
+    if request.method=="POST":
+        form = JoinForm(request.POST)
+        moods = ['슬픔', '감사', '걱정', '중립', '기쁨', '분노', '여유', '스트레스', '신남', '실망', '외로운', '우울함', '편안']
+        if form.is_valid():
+            user = User(
+                userid = form.userid,
+                password = make_password(form.password),
+            )
+            user.save()
+
+            for pk in form.prefer:
+                Music_prefer(
+                    user=user,
+                    preference=moods[int(pk)],
+                ).save()
+        else: 
+            print("join 실패")
+        return redirect("/user/login/")
+    else:
+        form = JoinForm()
+        return render(request,'join.html',{'form':form})
+
+def checkid(request):
+    userid = request.GET.get('userid')
+    context={}
+    try:
+        User.objects.get(userid=userid)
+    except:
+        context['data'] = "not exist" # 아이디 중복 없음
+
+    return JsonResponse(context)
