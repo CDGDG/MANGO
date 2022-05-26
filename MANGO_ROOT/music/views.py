@@ -24,3 +24,7 @@ def home(request):
         for song in BeautifulSoup(requests.get(url, headers=headers).text, 'html.parser').select('div.d_song_list table tbody tr')
     ]
     return render(request, 'home.html', {'melons': melons})
+
+
+def song_detail(request, song):
+    pass
