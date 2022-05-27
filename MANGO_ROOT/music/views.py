@@ -56,8 +56,10 @@ def search(request):
     if type=='album':
         d = data['albums']['items'][0]
         context['image'] = d['images'][1]['url']
+        context['image_small'] = d['images'][2]['url']
         context['name'] = d['name']
         context['artist'] = ','.join([artist['name'] for artist in d['artists']])
+        context['tracks'] = requests.get('https://api.spotify.com/v1/albums/' + data['albums']['items'][0]['id'] + '/tracks?access_token='+access_token).json()['items']
 
     return render(request, f'{type}.html',{'data': context})
 
