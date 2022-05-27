@@ -11,6 +11,28 @@
             <img src="{{data.image}}" alt="앨범 커버">
             <h3>{{data.name}}</h3>
             <h4>{{data.artist}}</h4>
+            <div class="table-wrapper">
+                <table class="alt">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>title</th>
+                            <th>album</th>
+                            <th>artist</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for track in data.tracks %}
+                        <tr>
+                            <td><a href='{% url "Music:search" %}?type=album&item={{data.name}}'><img src="{{data.image_small}}" alt="{{data.name}}"></a></td>
+                            <td><a href='{% url "Music:search" %}?type=track&item={{track.name}}'>{{track.name}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=album&item={{data.name}}'>{{data.name}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=artist&item={{data.artist}}'>{{data.artist}}</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -21,3 +43,11 @@
 <script src="/static/assets/js/breakpoints.min.js"></script>
 <script src="/static/assets/js/util.js"></script>
 <script src="/static/assets/js/main.js"></script>
+<style>
+    td{
+        vertical-align: middle;
+    }
+    td:hover{
+        background-color: rgba(0,0,0,0.2);
+    }
+</style>
