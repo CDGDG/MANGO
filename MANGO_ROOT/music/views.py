@@ -27,6 +27,9 @@ def top(request):
     ]
     return render(request, 'top.html', {'melons': melons})
 
+def song_detail(request, song):
+    pass
+
 def search(request):
     global access_token
     type = request.GET.get('type')

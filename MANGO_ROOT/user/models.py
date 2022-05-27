@@ -21,9 +21,23 @@ class Music_prefer(models.Model):
         verbose_name = '선호 음악 분위기'
         verbose_name_plural = '선호 음악 분위기(들)'
 
+
 # class Like_song(models.Model):
 #     userpk = models.ForeignKey('user.User', on_delete=models.CASCADE)
 #     song_num = models.IntegerField(verbose_name='곡 번호')
 
 #     class Meta:
 #         db_table = 'MANGO_like_song'
+
+class Playlist(models.Model):
+    user = models.ForeignKey('user.User', on_delete=models.CASCADE)
+    song_num = models.IntegerField(default=0, verbose_name='곡 번호')
+    order = models.IntegerField(default=0, verbose_name = '곡 순서')
+
+    class Meta:
+        db_table = 'MANGO_playlist'
+        verbose_name = '플레이리스트'
+        verbose_name_plural = '플레이리스트(들)'
+
+    def __str__(self):
+        return self.user + '의 곡'
