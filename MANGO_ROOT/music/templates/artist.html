@@ -1,1 +1,54 @@
-아티스트
+<link rel="stylesheet" href="/static/assets/css/main.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+<div id="one">
+    <div class="wrapper special">
+        <div class="inner">
+            <header class="major">
+                <h2>아티스트 정보</h2>
+            </header>
+            <img src="{{data.image}}" alt="앨범 커버">
+            <h3>{{data.name}}</h3>
+            <div class="table-wrapper">
+                <h4>인기곡</h4>
+                <table class="alt">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>title</th>
+                            <th>album</th>
+                            <th>artist</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for track in data.tracks %}
+                        <tr>
+                            <!-- ['album']['images'][1]['url'] -->
+                            <td><a href='{% url "Music:search" %}?type=album&item={{track.album.name}}&artist={{data.name}}'><img src="{{track.album.images.2.url}}" alt="{{track.album.name}}"></a></td>
+                            <td><a href='{% url "Music:search" %}?type=track&item={{track.name}}&artist={{data.name}}'>{{track.name}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=album&item={{track.album.name}}&artist={{data.name}}'>{{track.album.name}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=artist&item={{data.name}}'>{{data.name}}</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/assets/js/jquery.min.js"></script>
+<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+<script src="/static/assets/js/browser.min.js"></script>
+<script src="/static/assets/js/breakpoints.min.js"></script>
+<script src="/static/assets/js/util.js"></script>
+<script src="/static/assets/js/main.js"></script>
+<style>
+    td{
+        vertical-align: middle;
+    }
+    td:hover{
+        background-color: rgba(0,0,0,0.2);
+    }
+</style>

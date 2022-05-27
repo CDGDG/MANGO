@@ -24,9 +24,9 @@
                     <tbody>
                         {% for track in data.tracks %}
                         <tr>
-                            <td><a href='{% url "Music:search" %}?type=album&item={{data.name}}'><img src="{{data.image_small}}" alt="{{data.name}}"></a></td>
-                            <td><a href='{% url "Music:search" %}?type=track&item={{track.name}}'>{{track.name}}</a></td>
-                            <td><a href='{% url "Music:search" %}?type=album&item={{data.name}}'>{{data.name}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=album&item={{data.name}}&artist={{data.artist}}'><img src="{{data.image_small}}" alt="{{data.name}}"></a></td>
+                            <td><a href='{% url "Music:search" %}?type=track&item={{track.name}}&artist={{data.artist}}'>{{track.name}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=album&item={{data.name}}&artist={{data.artist}}'>{{data.name}}</a></td>
                             <td><a href='{% url "Music:search" %}?type=artist&item={{data.artist}}'>{{data.artist}}</a></td>
                         </tr>
                         {% endfor %}

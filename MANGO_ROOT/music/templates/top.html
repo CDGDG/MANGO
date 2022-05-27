@@ -21,9 +21,9 @@
                     <tbody>
                         {% for song in melons %}
                         <tr>
-                            <td><a href='{% url "Music:search" %}?type=album&item={{song.album}}'><img src="{{song.image}}" alt="{{song.album}}"></a></td>
-                            <td><a href='{% url "Music:search" %}?type=track&item={{song.track}}'>{{song.track}}</a></td>
-                            <td><a href='{% url "Music:search" %}?type=album&item={{song.album}}'>{{song.album}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=album&item={{song.album}}&artist={{song.artist}}'><img src="{{song.image}}" alt="{{song.album}}"></a></td>
+                            <td><a href='{% url "Music:search" %}?type=track&item={{song.track}}&artist={{song.artist}}'>{{song.track}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=album&item={{song.album}}&artist={{song.artist}}'>{{song.album}}</a></td>
                             <td><a href='{% url "Music:search" %}?type=artist&item={{song.artist}}'>{{song.artist}}</a></td>
                         </tr>
                         {% endfor %}
