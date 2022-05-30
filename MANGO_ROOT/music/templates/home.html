@@ -2,7 +2,7 @@
 {% block title %}뮤직 스트리밍 플랫폼 - MANGO{% endblock  %}
 {% block banner %}
 <div id="banner">
-    <div class="wrapper style1 special">
+    <div class="wrapper style1 special" style="padding: 2rem;">
         <div class="inner">
             <a href="/"><h1 class="heading alt" style="font-family: 'Dongle', sans-serif;">M A N G O</h1></a>
             <p style="font-family: 'Dongle', sans-serif;">뮤직 스트리밍 & 인공지능 챗봇 플랫폼</p>
@@ -12,37 +12,50 @@
 {% endblock  %}
 
 {% block contents %}
-<iframe src="{% url 'Music:top' %}" style='width: 50%;height: 1000px;' id='iframe'></iframe>
-
-{% comment %} <div id="one">
-    <div class="wrapper special">
-        <div class="inner">
-            <header class="major">
-                <h2>Top 100</h2>
-            </header>
-            <div class="table-wrapper">
-                <table class="alt">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>title</th>
-                            <th>album</th>
-                            <th>artist</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for song in melons %}
-                        <tr>
-                            <td><img src="{{song.image}}" alt="{{song.title}}"></td>
-                            <td>{{song.title}}</td>
-                            <td>{{song.album}}</td>
-                            <td>{{song.artist}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
+<div class='row' style='margin:0;'>
+    <!-- Top100 -->
+    <div class="col-6" style='height:90vh;padding:2% 4%;background-color:#ff8b77;'>
+        <iframe src="{% url 'Music:top' %}" style='width:100%;height:100%;border:2px solid white;border-radius:10px;background-color:white;' id='iframe'></iframe>
+    </div>
+    <!-- 챗봇 -->
+    <div class='col-6' style='padding:2% 4%;height: 90vh;background-color:#ff8b77;'>
+        <div style='height:100%;border:2px solid white;border-radius:10px;background-color:white;'>
+            <div class="chatheader" style='height: 10%;display:flex;margin: 0 3%;'>
+                <img src="/static/images/MANGO.png" style="width:45px;height:45px;margin:auto 0;"/>
+                <h3 style='margin:auto 0;font-family: "Lato"'>MANGO BOT</h3>
+            </div>
+            <div id="chatbox" style="height:80%;padding:10px;background-color:rgba(255, 139, 119, 0.3);overflow-y:scroll;overflow-x:hidden;max-height:100vh;"></div>
+            <div class="chatfooter" style='height: 10%;'>
+                <table width="100%" style='height: 100%;border: 0;'>
+                    <tr style='border: 0;background-color:transparent;'>
+                        <td width="90%" style='padding:0 0.6rem;vertical-align:middle;'>
+                            <input id="chattext" type='text' placeholder="망고봇을 사용해보세용" style='font-size:0.7rem;'>
+                        </td>
+                        <td width="10%" style='padding:0 0.6rem;vertical-align:middle;'>
+                            <a id='sendbtn' class="button primary">send</a>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
     </div>
-</div> {% endcomment %}
+</div>
+{% endblock  %}
+{% block script %}
+<style>
+    #chatbox::-webkit-scrollbar {
+        width: 10px;  /* 스크롤바의 너비 */
+    }
+    
+    #chatbox::-webkit-scrollbar-thumb {
+        height: 30%; /* 스크롤바의 길이 */
+        background: rgba(255, 139, 119, 0.6); /* 스크롤바의 색상 */
+        
+        border-radius: 10px;
+    }
+
+    #chatbox::-webkit-scrollbar-track {
+        background: rgba(33, 122, 244, .0);  /*스크롤바 뒷 배경 색상*/
+    }
+</style>
 {% endblock  %}
