@@ -2,8 +2,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/c0bcdc1f96.js" crossorigin="anonymous"></script>
 <div id="one">
-    <div class="wrapper special">
+    <div class="wrapper special" style='padding-top:3%;'>
+        <a href="{% url 'Music:top' %}" class="button primary icon solid fa-arrow-left" style='float:left;position:fixed;left: 3%;opacity: 0.8;'>Top100</a>
+        <div style='clear:both;'></div>
         <div class="inner">
             <header class="major">
                 <h2>앨범 정보</h2>
@@ -65,5 +68,8 @@
 
     body::-webkit-scrollbar-track {
         background: rgba(33, 122, 244, .0);  /*스크롤바 뒷 배경 색상*/
+    }
+    div.box > h3 {
+        border-bottom: 2px solid #ff8b77;
     }
 </style>

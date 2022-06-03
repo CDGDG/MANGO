@@ -1,0 +1,1698 @@
+소나기	NNP
+미워요	NNP
+신촌을 못가	NNP
+가질수 없는 너	NNP
+술 한잔 해요	NNP
+눈의 꽃	NNP
+지우개	NNP
+오르막길	NNP
+그녀를 찾아주세요	NNP
+걱정말아요 그대	NNP
+물감	NNP
+인연	NNP
+바람기억	NNP
+겨울을 걷는다	NNP
+보고싶다	NNP
+바보에게... 바보가	NNP
+퇴근버스	NNP
+내가 저지른 사랑	NNP
+행복하지 말아요	NNP
+야생화	NNP
+가시	NNP
+이 소설의 끝을 다시 써보려 해	NNP
+체념	NNP
+스토커	NNP
+Tears	NNP
+One Love	NNP
+Hello	NNP
+그대라는 사치	NNP
+응급실	NNP
+소주 한잔	NNP
+안아줘	NNP
+Marry Me	NNP
+키보드 (Prod. By Hansen)	NNP
+Believer	NNP
+If You Were Me	NNP
+Wow Thing	NNP
+Perfect	NNP
+정인 (情人)	NNP
+이별하러 가는 길	NNP
+IndiGO	NNP
+열애중 (답가)	NNP
+유재석 (prod. 진대호)	NNP
+별 (Feat. 김종완 of 넬) (prod.BOYCOLD)	NNP
+도망가지마	NNP
+가을 타나 봐	NNP
+하루도 그대를 사랑하지 않은 적이 없었다	NNP
+우리 그만하자	NNP
+지워져	NNP
+사랑에 아파본 적 있나요	NNP
+셀 수 없는 (Countless)	NNP
+We Young	NNP
+V	NNP
+노래	NNP
+불꽃놀이 (Remember Me)	NNP
+잘 지내요	NNP
+헤어지는 중	NNP
+사이렌 (Siren)	NNP
+너만 괜찮다면	NNP
+We Go Up	NNP
+NOAH (Feat. 박재범 Hoody)	NNP
+See You Again (Feat. 리처드 용재 오닐)	NNP
+몰랐니 (Lil’ Touch)	NNP
+사이렌(Siren)	NNP
+Kiss Me Like That	NNP
+AND I	NNP
+YOUNG	NNP
+Vacation (Feat. SOLE)	NNP
+늘 그대	NNP
+I AM	NNP
+IDOL (Feat. Nicki Minaj)	NNP
+스무살이 왜이리 능글맞아 (Feat. 숀 (SHAUN))	NNP
+다시 만나 (See you again)	NNP
+Serendipity (Full Length Edition)	NNP
+미워도 다시 한 번	NNP
+1000%	NNP
+Rollin` Rollin`	NNP
+Trivia 承 : Love	NNP
+Trivia 轉 : Seesaw	NNP
+왜 몰랐을까	NNP
+너에게 닿기를 (To reach you)	NNP
+Power	NNP
+어디에도	NNP
+HOLIDAY (Feat. DPR LIVE)	NNP
+덜덜덜	NNP
+Ko Ko Bop	NNP
+눈 (Feat. 이문세)	NNP
+별	NNP
+겨울소리	NNP
+애쓰지 마요	NNP
+고민보다 Go	NNP
+팔레트 (Feat. G-DRAGON)	NNP
+다시 쓰고 싶어	NNP
+매일 듣는 노래 (A Daily Song)	NNP
+한숨	NNP
+Blue	NNP
+미안해	NNP
+그 사람을 아나요	NNP
+Closer (Feat. Halsey)	NNP
+Universe	NNP
+Thunder	NNP
+바람이 불었으면 좋겠어	NNP
+에너제틱 (Energetic)	NNP
+REALLY REALLY	NNP
+비밀정원	NNP
+나의 사춘기에게	NNP
+네가 없는 곳	NNP
+고맙다	NNP
+마지막처럼	NNP
+짙어져	NNP
+바보야	NNP
+Lonely (Feat. 태연)	NNP
+연애소설 (Feat. 아이유)	NNP
+오늘밤도	NNP
+비가 온다	NNP
+빨간 맛 (Red Flavor)	NNP
+빛 (Hope)	NNP
+가시나	NNP
+노력	NNP
+봄날	NNP
+Beautiful	NNP
+첫눈처럼 너에게 가겠다	NNP
+그때의 나 그때의 우리	NNP
+후유증	NNP
+비도 오고 그래서 (Feat. 신용재)	NNP
+There`s Nothing Holdin` Me Back	NNP
+썸 탈꺼야	NNP
+너 없는 시간들	NNP
+True Love	NNP
+You	NNP
+좋아	NNP
+눈 떠보니 이별이더라	NNP
+시차 (We Are) (Feat. 로꼬 & GRAY)	NNP
+가을 안부	NNP
+그리워하다	NNP
+답장	NNP
+기억의 빈자리	NNP
+피카부 (Peek-A-Boo)	NNP
+밤편지	NNP
+Shape of You	NNP
+My Way	NNP
+LIKEY	NNP
+DNA	NNP
+다른사람을 사랑하고 있어	NNP
+all of my life	NNP
+좋니	NNP
+이 별	NNP
+Heart Shaker	NNP
+밤이 되니까	NNP
+#첫사랑	NNP
+instagram	NNP
+주인공	NNP
+비행운	NNP
+눈사람	NNP
+HandClap	NNP
+선물	NNP
+Havana (Feat. Young Thug)	NNP
+Roller Coaster	NNP
+Bad Boy	NNP
+그날처럼	NNP
+그때 헤어지면 돼	NNP
+뿜뿜	NNP
+붕붕 (Feat. Sik-K) (Prod. GroovyRoom)	NNP
+Adios (Prod. BOYCOLD)	NNP
+花요일 (Blooming Day)	NNP
+What is Love?	NNP
+LA LA	NNP
+여보세요 (HELLO)	NNP
+예뻤더라 (WE WERE)	NNP
+아름다운 (Feat. 헤이즈)	NNP
+탓 (Prod. BOYCOLD)	NNP
+그대니까요	NNP
+MADMAX (Feat. Woodie Gochild) (Prod. GroovyRoom)	NNP
+손만 잡고 자자 (TURN OFF THE LIGHT) (MINO SOLO)	NNP
+넋두리	NNP
+AIR	NNP
+Young Wave (Feat. 행주 보이비)	NNP
+내일해	NNP
+EVERYDAY	NNP
+봄이 좋냐??	NNP
+매일 봐요	NNP
+하루끝엔 그대가 있어요	NNP
+Someone like you	NNP
+널 부르는 밤	NNP
+봄 사랑 벚꽃 말고	NNP
+남겨둘게 (Feat. 헤이즈)	NNP
+그럴 수밖에	NNP
+지나오다	NNP
+바코드 (Prod. GroovyRoom)	NNP
+운명 (The Chance of Love)	NNP
+Like It (Feat. 행주 보이비)	NNP
+비	NNP
+어린 왕자 (Prod. Godic)	NNP
+껍데기는 가	NNP
+모든 날 모든 순간 (Every day Every Moment)	NNP
+약속해요 (고백 Ver.)	NNP
+WE ARE	NNP
+보여	NNP
+너의 이름을	NNP
+GOLD	NNP
+소나기 (Feat. 10cm)	NNP
+BOOMERANG (부메랑)	NNP
+북 (Prod.SLO)	NNP
+BOSS	NNP
+결혼	NNP
+실례해도 될까요	NNP
+Action! (Feat. GRAY)	NNP
+벚꽃 엔딩	NNP
+My Blossom	NNP
+나타나줘 (Feat. 박재범)	NNP
+Look	NNP
+꽃 길	NNP
+She`s gone	NNP
+갖고 싶어	NNP
+바람	NNP
+다시	NNP
+그날의 너에게	NNP
+MIANHAE	NNP
+잘 살길 바래 (With. DAVII)	NNP
+별 바람 꽃 태양	NNP
+고무줄다리기 (Rubber Band)	NNP
+괜찮냐고	NNP
+내가 더 나빠	NNP
+약속해요 (I.P.U.)	NNP
+Jenga (Feat. Gaeko)	NNP
+별이 빛나는 밤	NNP
+오늘 취하면 (Feat.창모) (Prod. SUGA)	NNP
+What Lovers Do (Feat. SZA)	NNP
+널 너무 모르고	NNP
+사랑하지 않은 것처럼	NNP
+너였다면	NNP
+LONG TIME NO SEE	NNP
+Love Yourself	NNP
+폰서트	NNP
+빛이 나 (Shinin`)	NNP
+가을 아침	NNP
+너 하나만 (Feat. 효린)	NNP
+피 땀 눈물	NNP
+Something Just Like This	NNP
+행복 (Full Of Happiness)	NNP
+MIC Drop	NNP
+Tell Me	NNP
+남이 될 수 있을까	NNP
+봉제선 (Feat. 수란)	NNP
+Youth	NNP
+I Want You	NNP
+The Feeling	NNP
+Forever Young	NNP
+뚜두뚜두 (DDU-DU DDU-DU)	NNP
+FAKE LOVE (Rocking Vibe Mix)	NNP
+11 (Prod. 다이나믹듀오)	NNP
+영원+1 (Prod. NELL)	NNP
+모래시계 (Prod. 헤이즈)	NNP
+캥거루 (Kangaroo) (Prod. ZICO)	NNP
+켜줘 (Light)	NNP
+안녕 (You & I)	NNP
+All Day All Night	NNP
+영원히	NNP
+이 밤의 끝	NNP
+다시 우리	NNP
+LOVE YA!	NNP
+데리러 가 (Good Evening)	NNP
+빙글뱅글 (Bingle Bangle)	NNP
+Lullaby	NNP
+SELFISH (Feat. 슬기 Of Red Velvet)	NNP
+Clip	NNP
+안녕 곰인형	NNP
+야경	NNP
+Lonely	NNP
+바람사람	NNP
+여행	NNP
+열애중	NNP
+Outro : Tear	NNP
+Additional	NNP
+Intro : Singularity	NNP
+Fly Away	NNP
+So What	NNP
+Airplane pt.2	NNP
+Anpanman	NNP
+Magic Shop	NNP
+Love Maze	NNP
+낙원	NNP
+134340	NNP
+전하지 못한 진심 (Feat. Steve Aoki)	NNP
+FAKE LOVE	NNP
+우리 서로	NNP
+너란 별	NNP
+그대들은 어떤 기분이신가요	NNP
+SINKING DOWN WITH U	NNP
+무슨 말이 필요해 (Go Away)	NNP
+LATATA	NNP
+우리 둘만 아는	NNP
+뒤집어버려	NNP
+빛나리	NNP
+My Paradise (Feat. 청하 VINXEN)	NNP
+잊을만하면	NNP
+밤 (Time for the moon night)	NNP
+별 시 (別 時)	NNP
+Graduation (Feat. 이병재 (VINXEN) 이로한 (WEBSTER B))	NNP
+달리 (Dally) (Feat. GRAY)	NNP
+별 그대 (The Only Star)	NNP
+그날의 너	NNP
+욕심	NNP
+어른	NNP
+YAHO (Feat. 지구인 행주) (Prod. Jangsoo Padi)	NNP
+부를게	NNP
+주지마	NNP
+#결별	NNP
+향 (Scentist)	NNP
+EASY (Feat. 식케이)	NNP
+휴일 (Lazy)	NNP
+Thursday	NNP
+솔직히 (Honestly…)	NNP
+Vroom Vroom	NNP
+Monday Blues	NNP
+너에게 꽃이다	NNP
+내일 만나 (Sweet Dreams!)	NNP
+Why Why Why	NNP
+이로한 (Feat. ELO Jessi) (Prod. Padi)	NNP
+Playdate	NNP
+전혀 (Feat. 우원재) (Prod. GroovyRoom)	NNP
+Stand By Your Man	NNP
+Trivia 起 : Just Dance	NNP
+Epiphany	NNP
+Answer : Love Myself	NNP
+I`m Fine	NNP
+Rumor	NNP
+Euphoria	NNP
+IDOL	NNP
+매트리스	NNP
+BAE	NNP
+Attention	NNP
+이방인	NNP
+A-TEEN	NNP
+한(一)	NNP
+Mosquito	NNP
+Hit That Drum	NNP
+Mr. E	NNP
+Page 0	NNP
+Blue Lemonade	NNP
+휴가	NNP
+태양 (Feat. 챈슬러)	NNP
+좋은 날	NNP
+한 여름의 크리스마스 (With You)	NNP
+Power Up	NNP
+flex (Prod. By 기리보이)	NNP
+소리	NNP
+비가 내리면	NNP
+죽겠다 (KILLING ME)	NNP
+SoulMate (Feat. 아이유)	NNP
+여보세요	NNP
+20 Something (PROD. 정동환 정세운)	NNP
+WHERE R U FROM (Feat. MINO)	NNP
+바다보러갈래 (SEE SEA)	NNP
+Me No Jay Park	NNP
+나에게로 와	NNP
+여름밤의 꿈 (Midnight Summer Dream)	NNP
+우리의 새벽은 낮보다 뜨겁다	NNP
+Holiday	NNP
+6 o`clock	NNP
+셋 셀테니 (1 2 3!)	NNP
+여름여름해 (Sunny Summer)	NNP
+어쩌나	NNP
+Love U	NNP
+너나 해 (Egotistic)	NNP
+그해 여름	NNP
+Chandelier	NNP
+Cereal (Feat. ZICO)	NNP
+CHILLAX	NNP
+지각	NNP
+마치 우린 없었던 사이 (Prod. 정키)	NNP
+그 날 (Original Ver.)	NNP
+Way Back Home	NNP
+장마	NNP
+동화	NNP
+1도 없어	NNP
+Dance The Night Away	NNP
+Lock You Down (Special Track)	NNP
+Shadow	NNP
+중력달 (Gravity&Moon)	NNP
+ylenoL	NNP
+Signal	NNP
+그대만 보여서	NNP
+북극성 (Polaris)	NNP
+네가 남겨둔 말 (Our Page)	NNP
+BAAM	NNP
+Dejavu	NNP
+1 2 3	NNP
+정진철	NNP
+Yeah	NNP
+길에서	NNP
+Circus	NNP
+귀가본능 (Feat. JINBO the superfreak)	NNP
+불행 (Feat. 빈첸 (VINXEN))	NNP
+Call me	NNP
+저녁의 이유 (All Night Long) (Feat. LUCAS of NCT)	NNP
+Blue Moon	NNP
+Something New	NNP
+너 없인 안 된다	NNP
+LOVE	NNP
+See U Later	NNP
+질투나	NNP
+Really	NNP
+오늘은 가지마	NNP
+사랑비	NNP
+혼자 한잔	NNP
+노래가 늘었어	NNP
+비밀번호 486	NNP
+보여줄게	NNP
+Endless	NNP
+눈 코 입	NNP
+...사랑했잖아	NNP
+그립고 그립고 그립다	NNP
+취하고 싶다 (Prod. By 전태익)	NNP
+그대를 사랑하는 10가지 이유	NNP
+서울의 달	NNP
+애상	NNP
+오래된 노래	NNP
+사랑했지만	NNP
+끝사랑	NNP
+꿈에	NNP
+사랑했었다 (Still love you)	NNP
+홍연	NNP
+사랑합니다	NNP
+사랑의 배터리	NNP
+미인 (美人)	NNP
+그녀를 사랑해줘요	NNP
+범퍼카 (Feat. NO:EL Young B)	NNP
+고백	NNP
+꽃피는 봄이 오면	NNP
+헤어지는 중입니다	NNP
+봄봄봄	NNP
+Officially Missing You	NNP
+서쪽 하늘	NNP
+내가 너의 곁에 잠시 살았다는 걸	NNP
+불장난	NNP
+기다릴게	NNP
+정류장	NNP
+기다리다	NNP
+널 사랑하지 않아	NNP
+너를 위해	NNP
+듣는편지	NNP
+입술의 말	NNP
+애인... 있어요	NNP
+이별택시	NNP
+시간을 거슬러	NNP
+남자를 몰라	NNP
+캔디 (Candy)	NNP
+첫 눈	NNP
+Let It Go	NNP
+친구라도 될 걸 그랬어	NNP
+잠시만 안녕 (Original)	NNP
+바라보기	NNP
+감사	NNP
+광화문에서 (At Gwanghwamun)	NNP
+1월부터 6월까지	NNP
+이미 슬픈 사랑	NNP
+잊지 말아요	NNP
+나를 사랑했던 사람아	NNP
+천년의 사랑	NNP
+나비잠 (Sweet Dream)	NNP
+노땡큐 (Feat. MINO 사이먼 도미닉 더콰이엇)	NNP
+8282	NNP
+형 (兄)	NNP
+삭제	NNP
+죽일 놈 (Guilty)	NNP
+가족사진	NNP
+사랑을 했다 (LOVE SCENARIO)	NNP
+flex (Prod. By 기리보이)	NNP
+No Brainer (Feat. Justin Bieber Chance the Rapper & Quavo)	NNP
+EX	NNP
+#첫사랑	NNP
+The Middle	NNP
+Idontwannabeyouanymore	NNP
+좋았을걸	NNP
+How Long	NNP
+잘가라	NNP
+바보에게 바보가	NNP
+자격지심 (Feat. 은하 of 여자친구)	NNP
+아마도 그건	NNP
+Despacito	NNP
+This Christmas	NNP
+Best Of Me	NNP
+24K Magic	NNP
+Stay	NNP
+iffy (Prod. GroovyRoom)	NNP
+Never Be The Same	NNP
+무제(無題) (Untitled 2014)	NNP
+Bad	NNP
+One Kiss	NNP
+WHERE YOU AT	NNP
+Selfmade Orange (Feat. SUPERBEE)	NNP
+Girls Like You (Feat. Cardi B)	NNP
+FRIENDS	NNP
+Black Swan	NNP
+아무노래 	NNP
+다시 난 여기	NNP
+너를 사랑하고 있어	NNP
+Psycho	NNP
+다시는 사랑하지 않고 이별에 아파하기 싫어	NNP
+Square (2017)	NNP
+첫 겨울이니까	NNP
+십이월 이십오일의 고백	NNP
+아마두 (Feat. 우원재 김효은 넉살 Huckleberry P)	NNP
+나의 오랜 연인에게	NNP
+헤어진 우리가 지켜야 할 것들	NNP
+METEOR	NNP
+빌었어	NNP
+Obsession	NNP
+날 보러 와요 (Come See Me)	NNP
+Blueming	NNP
+시간의 바깥	NNP
+unlucky	NNP
+그 사람	NNP
+자장가	NNP
+숨겨진 세상 (Into the Unknown End Credit Ver.) (겨울왕국 2)	NNP
+Into the Unknown	NNP
+Show Yourself	NNP
+HIP	NNP
+이 번호로 전화해줘	NNP
+차가워진 이 바람엔 우리가 써있어(Bad Love)	NNP
+늦은 밤 너의 집 앞 골목길에서	NNP
+5월의 밤	NNP
+Love poem	NNP
+All I Want For Christmas Is You	NNP
+이별주	NNP
+영화 속에 나오는 주인공처럼	NNP
+이별은 늘 그렇게 (Duet. 정은지)	NNP
+불티 (Spark)	NNP
+인기 (Feat. 송가인 챈슬러)	NNP
+샤넬 (Feat. 박봄)	NNP
+LION	NNP
+내 생애 가장 행복한 시간 Part.2 (Feat. 양다일)	NNP
+떨어지는 낙엽까지도	NNP
+새 사랑	NNP
+있어줘요	NNP
+허전해	NNP
+이별행동	NNP
+우리 어떻게 할까요	NNP
+천둥벌거숭이 (Feat. Jvcki Wai 염따)	NNP
+사람	NNP
+어떻게 이별까지 사랑하겠어 널 사랑하는 거지	NNP
+달	NNP
+조금 취했어 (Prod. 2soo)	NNP
+Feel Special	NNP
+Memories	NNP
+가끔 이러다	NNP
+워커홀릭	NNP
+XX	NNP
+25	NNP
+사랑이란 멜로는 없어	NNP
+가을밤 떠난 너	NNP
+헤어지자 (Prod. 정키)	NNP
+다시 만날까 봐	NNP
+나빠(NAPPA)	NNP
+날라리 (LALALAY)	NNP
+FLASH	NNP
+벗	NNP
+담아 (Feat. 염따 pH-1) (Prod. BOYCOLD)	NNP
+흔들리는 꽃들 속에서 네 샴푸향이 느껴진거야	NNP
+음파음파 (Umpah Umpah)	NNP
+Done For Me	NNP
+Say Goodbye	NNP
+안녕	NNP
+내 목소리 들리니	NNP
+방에 모기가 있어 (Do You Think Of Me?)	NNP
+BUNGEE (Fall in Love)	NNP
+기억해줘요 내 모든 날과 그때를	NNP
+그 끝에 그대	NNP
+ICY	NNP
+내 맘을 볼 수 있나요	NNP
+너만 너만 너만	NNP
+가라사대	NNP
+그대라는 시	NNP
+나의 어깨에 기대어요	NNP
+내 안부	NNP
+Another Day	NNP
+비오는 날 뭐해	NNP
+헤어질 걸 알아	NNP
+UN Village	NNP
+인사	NNP
+We don`t talk together (Feat. 기리보이) (Prod. SUGA)	NNP
+U GOT IT	NNP
+헤어져줘서 고마워	NNP
+비가 내리는 날에는	NNP
+괜찮아도 괜찮아 (That`s okay)	NNP
+열대야 (Fever)	NNP
+비워 (Beer) (Prod. Way Ched)	NNP
+Uh-Oh	NNP
+Snapping	NNP
+Senorita	NNP
+포장마차	NNP
+짐살라빔 (Zimzalabim)	NNP
+술이 문제야	NNP
+Honesty	NNP
+서울 밤 (Feat. 빈지노)	NNP
+BIRTHDAY	NNP
+아퍼 (Feat. Kid Milli Lil tachi 김승민 NO:EL C JAMM)	NNP
+오늘도 빛나는 너에게 (To You My Light) (Feat.이라온)	NNP
+솔직하게 말해서 나	NNP
+BAND	NNP
+누구 없소 (NO ONE) (Feat. B.I of iKON)	NNP
+대충 입고 나와	NNP
+사랑이 식었다고 말해도 돼	NNP
+Speechless (Full)	NNP
+A Whole New World	NNP
+Arabian Nights (2019)	NNP
+Prince Ali	NNP
+교통정리 (Feat. 헤이즈)	NNP
+안녕하세요	NNP
+너에게 못했던 내 마지막 말은	NNP
+비가 오잖아	NNP
+AH YEAH (아예)	NNP
+오월의 어느 봄날 (Feat. 첸(CHEN))	NNP
+니 소식	NNP
+I Don`t Care	NNP
+돈 Call Me (Prod. BRLLNT)	NNP
+다섯 번째 계절 (SSFWL)	NNP
+Goodbye	NNP
+If I Can`t Have You	NNP
+이 밤	NNP
+FANCY	NNP
+GO HIGH (Feat. 우원재 창모 (CHANGMO) The Quiett) (Prod. CODE KUNST)	NNP
+작은 것들을 위한 시 (Boy With Luv) (Feat. Halsey)	NNP
+소우주 (Mikrokosmos)	NNP
+Make It Right	NNP
+Dionysus	NNP
+HOME	NNP
+Jamais Vu	NNP
+Intro : Persona	NNP
+있어줄래	NNP
+Kill This Love	NNP
+Don`t Know What To Do	NNP
+나만 봄	NNP
+별 보러 갈래?	NNP
+Mermaid	NNP
+나들이 갈까	NNP
+사월이 지나면 우리 헤어져요 (Beautiful goodbye)	NNP
+비올레타	NNP
+시든 꽃에 물을 주듯	NNP
+bad guy	NNP
+진심이 담긴 노래 (True Song)	NNP
+사계 (Four Seasons)	NNP
+Blue	NNP
+On My Way	NNP
+노래방에서	NNP
+당신과는 천천히	NNP
+일산으로	NNP
+SHE`S FINE	NNP
+그러니까 (Feat. Colde)	NNP
+그건 아마 우리의 잘못은 아닐 거야	NNP
+야간비행 (魔女の花)	NNP
+혼자	NNP
+눈 (Prod. GIRIBOY)	NNP
+고고베베 (gogobebe)	NNP
+주저하는 연인들을 위해	NNP
+봄 (Feat. 산다라박)	NNP
+술이 달다 (Feat. 크러쉬)	NNP
+호불호 (Feat. 기리보이) (Prod. By GRAY)	NNP
+오늘 밤에	NNP
+그러나	NNP
+여자친구	NNP
+wish you were gay	NNP
+누아르 (Noir)	NNP
+Sucker	NNP
+사랑해서 그래	NNP
+Senorita	NNP
+미운 날 (The day I hate myself)	NNP
+멍청이(twit)	NNP
+달라달라	NNP
+Talk	NNP
+오랜만이야 (Feat. Zion.T)	NNP
+i`m so tired...	NNP
+이 노래가 클럽에서 나온다면	NNP
+Heu ! (Full Ver.)	NNP
+신청곡 (Feat. SUGA of BTS)	NNP
+Home	NNP
+7 rings	NNP
+초록빛	NNP
+해야 (Sunrise)	NNP
+띵 (Prod. By 기리보이)	NNP
+Dancing With A Stranger	NNP
+길 (Song by 아이유 헨리 조현아 양다일)	NNP
+%%(응응)	NNP
+넘쳐흘러	NNP
+벌써 12시	NNP
+옥탑방	NNP
+사계 (하루살이)	NNP
+습관 (Bad Habits)	NNP
+그때가 좋았어	NNP
+알았다면	NNP
+MILLIONS	NNP
+사랑 알 수 없나봐	NNP
+첫눈에	NNP
+Sunflower (Spider-Man : Into The Spider-Verse)	NNP
+Love Shot	NNP
+We all lie	NNP
+180도	NNP
+동화 (Feat. 아이유)	NNP
+행복	NNP
+RBB (Really Bad Boy)	NNP
+너도 그냥 날 놓아주면 돼	NNP
+Wind flower	NNP
+흔한 이별	NNP
+첫눈처럼 너에게 가겠다 (Prod. 로코베리)	NNP
+아낙네	NNP
+come out and play	NNP
+알러뷰	NNP
+그대가 내 안에 박혔다	NNP
+봄바람	NNP
+SOLO	NNP
+아름답고도 아프구나	NNP
+북향 (Feat. 오혁)	NNP
+소년점프 (Feat. 배기성)	NNP
+신용재	NNP
+Goodbye	NNP
+YES or YES	NNP
+너는 어땠을까	NNP
+thank u next	NNP
+POP/STARS	NNP
+수퍼비와 (Feat. BewhY) (Prod. BewhY)	NNP
+NoNo (Feat. 사이먼 도미닉) (Prod. 코드 쿤스트)	NNP
+Tempo	NNP
+Gravity	NNP
+닿은 순간 (Ooh La La La)	NNP
+44036	NNP
+Sign	NNP
+여기 있을게 (Smile On My Face)	NNP
+너를 만나	NNP
+라비앙로즈 (La Vie en Rose)	NNP
+Waste It On Me (Feat. BTS (방탄소년단))	NNP
+내 생에 아름다운	NNP
+Friend	NNP
+Save (Feat. 팔로알토) (Prod. 코드 쿤스트)	NNP
+Bohemian Rhapsody	NNP
+Kiss And Make Up	NNP
+친구로 지내자면서 (Prod. By 전태익)	NNP
+꿈처럼 내린	NNP
+벚꽃연가	NNP
+고백	NNP
+멋지게 인사하는 법 (Feat. 슬기 of Red Velvet)	NNP
+Hate You (Feat. 우원재) (Prod. 코드 쿤스트)	NNP
+너에게	NNP
+삐삐	NNP
+Paris In The Rain	NNP
+시간이 들겠지 (Feat. Colde)	NNP
+I Like Me Better	NNP
+Good Day (Feat. 팔로알토) (Prod. 코드 쿤스트)	NNP
+사임사임 (Feat. CHANGMO)	NNP
+Shallow	NNP
+Without Me	NNP
+이별길 (GOODBYE ROAD)	NNP
+나	NNP
+구름	NNP
+comethru	NNP
+사랑에 연습이 있었다면 (Prod. 2soo)	NNP
+동화	NNP
+Better Now	NNP
+2002	NNP
+Day 1 ◑	NNP
+In My Blood	NNP
+Done For Me	NNP
+Psycho (Feat. Ty Dolla $ign)	NNP
+Lullaby	NNP
+Never Enough	NNP
+Martini Blue	NNP
+Lip & Hip	NNP
+갈 수가 없어	NNP
+Rewrite The Stars	NNP
+뻔한 이별	NNP
+Twilight	NNP
+Snowman	NNP
+러브스토리 (Feat. 크러쉬)	NNP
+박수	NNP
+Too Good At Goodbyes	NNP
+Palace	NNP
+All Falls Down (Feat. Noah Cyrus Digital Farm Animals)	NNP
+This Is Me	NNP
+빈차 (Feat. 오혁)	NNP
+헤어질 수 밖에	NNP
+가을 안부	NNP
+너를 찾아서	NNP
+Perhaps Love (사랑인가요) (Prod. by 박근태)	NNP
+썸 탈꺼야	NNP
+나의 사춘기에게	NNP
+Blue	NNP
+고쳐주세요	NNP
+상상	NNP
+길	NNP
+잠 못 드는 밤 비는 내리고	NNP
+비밀의 화원	NNP
+매일 그대와	NNP
+특별해	NNP
+The Spectre	NNP
+She (Hidden Track No.V 1월 선정곡)	NNP
+베베 (BABE)	NNP
+Red Sun (Feat. ZICO Swings)	NNP
+Look What You Made Me Do	NNP
+활활 (Burn It Up)	NNP
+N분의 1 (Feat. 다이나믹듀오)	NNP
+요즘것들 (Feat. ZICO & DEAN)	NNP
+LOVE ME LOVE ME	NNP
+ISLAND	NNP
+Holiday	NNP
+귀를 기울이면 (LOVE WHISPER)	NNP
+있다면	NNP
+있잖아	NNP
+Sriracha	NNP
+DINOSAUR	NNP
+Artist	NNP
+FANXY CHILD (Feat. FANXY CHILD)	NNP
+Sorry Not Sorry	NNP
+아침에 (Feat. Bryn)	NNP
+FIVE	NNP
+나로 말할 것 같으면 (Yes I am)	NNP
+Feels (Feat. Pharrell Williams Katy Perry & Big Sean)	NNP
+Why Don`t You Know (Feat. 넉살)	NNP
+NEVER	NNP
+Oh Little Girl	NNP
+New Rules	NNP
+IDGAF	NNP
+LONELY	NNP
+CALLING YOU	NNP
+사랑앓이 (With 김나영)	NNP
+There For You	NNP
+지나쳐 (FEAT. DEAN)	NNP
+울고 싶지 않아	NNP
+혼자	NNP
+처음부터 너와 나	NNP
+SIGNAL	NNP
+맞지?	NNP
+New Face	NNP
+I LUV IT	NNP
+미치고 싶다	NNP
+I`m The One (Feat. Justin Bieber Quavo Chance the Rapper Lil Wayne)	NNP
+아프지 마요	NNP
+TOMBOY	NNP
+이름에게	NNP
+이런 엔딩	NNP
+이 지금	NNP
+잼잼	NNP
+Shape Of You	NNP
+Despacito (Remix)	NNP
+BLUE MOON (Prod. GroovyRoom)	NNP
+She`s a Baby	NNP
+너란 봄 (Feat. 하림)	NNP
+사랑이 잘 (With 오혁)	NNP
+Make Me Love You	NNP
+REALLY REALLY	NNP
+HUMBLE.	NNP
+I`ll be yours	NNP
+얼굴 찌푸리지 말아요	NNP
+Symphony (Feat. Zara Larsson)	NNP
+나야 나 (PICK ME)	NNP
+부담이 돼 (Feat. 휘인 of 마마무)	NNP
+MOVIE	NNP
+FINGERTIP	NNP
+Perfect	NNP
+Galway Girl	NNP
+Slide (Feat. Frank Ocean & Migos)	NNP
+Fine	NNP
+오늘도 그대만 (Feat. 정동원)	NNP
+Bellyache	NNP
+KNOCK KNOCK	NNP
+니가 보고싶은 밤	NNP
+좋아해 (bye)	NNP
+넘어와 (Feat. 백예린)	NNP
+비가와 (Rain)	NNP
+Not Today	NNP
+YESTERDAY	NNP
+우리집을 못 찾겠군요 (Feat. 볼빨간사춘기)	NNP
+Beauty and the Beast (영화 미녀와 야수 삽입곡 (Beauty and the Beast OST))	NNP
+Rookie	NNP
+노래	NNP
+Complex (Feat. G-DRAGON)	NNP
+미안해 (Feat. Beenzino)	NNP
+기다렸다 가	NNP
+Round and round (Feat. 한수지)	NNP
+행복한 척	NNP
+Paris	NNP
+Despacito (Feat. Daddy Yankee)	NNP
+소원	NNP
+오랜 날 오랜 밤	NNP
+Excuse Me	NNP
+I Miss You	NNP
+당신의 밤 (Feat. 오혁)	NNP
+쏘아	NNP
+Who are you	NNP
+이쁘다니까	NNP
+좋다고 말해	NNP
+Beautiful	NNP
+에라 모르겠다	NNP
+LAST DANCE	NNP
+GIRLFRIEND	NNP
+Hush	NNP
+내 눈에만 보여	NNP
+City Of Stars (From `La La Land` Soundtrack)	NNP
+Another Day Of Sun (From `La La Land` Soundtrack)	NNP
+A Lovely Night (From `La La Land` Soundtrack)	NNP
+저 별	NNP
+Stay With Me	NNP
+Alone	NNP
+이 바보야	NNP
+BERMUDA TRIANGLE (Feat. Crush DEAN)	NNP
+I Feel It Coming (Feat. Daft Punk)	NNP
+꽃길 (Prod. By ZICO)	NNP
+That`s What I Like	NNP
+Decalcomanie (데칼코마니)	NNP
+남아있어 (Feat. Crush)	NNP
+널 너무 사랑해서 (Feat. 정은지 of 에이핑크)	NNP
+18991231	NNP
+TT	NNP
+Rockabye (Feat. Sean Paul & Anne-Marie)	NNP
+All I Wanna Do (K) (Feat. Hoody Loco)	NNP
+너무너무너무	NNP
+어떻게 지내	NNP
+Don`t Wanna Know (Feat. Kendrick Lamar)	NNP
+내 옆에 그대인 걸	NNP
+빌려줄게	NNP
+세 단어	NNP
+숨	NNP
+끝	NNP
+Dancing King	NNP
+다정하게 안녕히	NNP
+The Greatest (Feat. Kendrick Lamar)	NNP
+러시안 룰렛 (Russian Roulette)	NNP
+구르미 그린 달빛	NNP
+우주를 줄게	NNP
+나만 안되는 연애	NNP
+You(=I)	NNP
+심술	NNP
+프리지아	NNP
+Blow Your Mind (Mwah)	NNP
+목요일 밤 (Feat. 빈지노)	NNP
+너를 위해	NNP
+If You	NNP
+잠은 다 잤나봐요	NNP
+Lotto	NNP
+puzzle	NNP
+휘파람	NNP
+붐바야	NNP
+Let Me Love You (Feat. Justin Bieber)	NNP
+뜨거운 여름밤은 가고 남은 건 볼품없지만	NNP
+사랑해요	NNP
+여름밤에 우린	NNP
+Cold Water (Feat. Justin Bieber & MO)	NNP
+Warm On A Cold Night	NNP
+아름다워	NNP
+마에스트로 (Maestro)	NNP
+And July (Feat. DEAN DJ Friz)	NNP
+The Ocean (Feat. Shy Martin) (Radio Edit)	NNP
+네 생각	NNP
+너 그리고 나 (NAVILLERA)	NNP
+Day Day (Feat. 박재범) (Prod. by GRAY)	NNP
+Why So Lonely	NNP
+아주 NICE	NNP
+Forever (Prod. by GRAY)	NNP
+호랑나비 (Feat. Gill 리듬파워)	NNP
+Shut Up (Feat. 유희열)	NNP
+Why	NNP
+맘 편히 (Comfortable)	NNP
+I Like That	NNP
+Bye bye my blue	NNP
+니가 알던 내가 아냐 (Prod. by GRAY)	NNP
+Monster	NNP
+Lucky One	NNP
+Treat You Better	NNP
+쏘쏘	NNP
+오늘	NNP
+Side To Side (Feat. Nicki Minaj)	NNP
+사랑이 뭔데	NNP
+Good Luck	NNP
+CAN`T STOP THE FEELING!	NNP
+꿈처럼	NNP
+우아해 (woo ah)	NNP
+This Is What You Came For (Feat. Rihanna)	NNP
+RE-BYE	NNP
+불타오르네 (FIRE)	NNP
+Save ME	NNP
+How To Love (Feat. Sofia Reyes)	NNP
+내 입술 따뜻한 커피처럼 (Feat. 이성경)	NNP
+CHEER UP	NNP
+하늘바라기 (feat. 하림)	NNP
+돌아오지마 (Feat. 용준형 of 비스트)	NNP
+How Can I Love You	NNP
+Toy	NNP
+그대 바람이 되어	NNP
+7 Years	NNP
+사랑하자	NNP
+꿈속에 너 (Feat. 전상근)	NNP
+i hate u i love u (Feat. olivia o`brien) (album ver.)	NNP
+사랑에 빠졌죠 (당신만이)	NNP
+D (half moon) (Feat. 개코)	NNP
+21	NNP
+같은 곳에서	NNP
+말해! 뭐해?	NNP
+다시 너를	NNP
+Don`t Cry (우리동네 음악대장)	NNP
+You Are My Everything	NNP
+봄인가 봐 (Spring Love)	NNP
+이 사랑	NNP
+넌 is 뭔들	NNP
+Everytime	NNP
+공감 (Feat. 서영은)	NNP
+ALWAYS	NNP
+Don`t Let Me Down (Feat. Daya)	NNP
+Rain	NNP
+센치해	NNP
+We Don`t Talk Anymore (Feat. Selena Gomez)	NNP
+Left Right Left	NNP
+Up All Night	NNP
+Marvin Gaye (Feat. Meghan Trainor)	NNP
+I Miss You	NNP
+what2do (Feat. Crush Jeff Bernat)	NNP
+시간을 달려서 (Rough)	NNP
+너는 나 나는 너	NNP
+사랑이었다 (Feat. 루나 of f(x))	NNP
+For Him. (Feat. Allday)	NNP
+잊어버리지마 (Feat.태연)	NNP
+Faded	NNP
+Dream	NNP
+니가 하면 로맨스 (feat.다비치)	NNP
+또 하루 (Feat. 개코)	NNP
+어땠을까	NNP
+함께	NNP
+PICK ME	NNP
+사랑이 맞을거야	NNP
+유레카 (Feat. Zion.T)	NNP
+네게 줄 수 있는건 오직 사랑뿐	NNP
+Everglow	NNP
+DADDY (Feat. CL of 2NE1)	NNP
+나팔바지	NNP
+우주를 건너	NNP
+혜화동 (혹은 쌍문동)	NNP
+소녀	NNP
+When We Were Young	NNP
+못먹는 감 (Sour Grapes)	NNP
+HOT PINK	NNP
+Boys And Girls (Feat. Babylon)	NNP
+청춘 (Feat. 김창완)	NNP
+4 Walls	NNP
+냉탕에 상어 (Feat. 블랙넛)	NNP
+Sorry	NNP
+Hello	NNP
+스물셋	NNP
+무릎	NNP
+푸르던	NNP
+OOH-AHH하게	NNP
+모르나봐	NNP
+No Make Up	NNP
+I (Feat. 버벌진트)	NNP
+Ah-Choo	NNP
+리듬 타 (RHYTHM TA)	NNP
+가끔	NNP
+또 다시 사랑	NNP
+어깨	NNP
+바람이나 좀 쐐 (Feat. MIWOO)	NNP
+보통연애 (Feat. 박보람)	NNP
+하루의 끝 (End of a day)	NNP
+취향저격	NNP
+Dumb Dumb	NNP
+FOOLS	NNP
+Okey Dokey	NNP
+What Do You Mean?	NNP
+One Call Away	NNP
+겁 (Feat. 태양)	NNP
+레옹	NNP
+맙소사	NNP
+스폰서 ($ponsor)	NNP
+멋진헛간	NNP
+I`m So Sexy	NNP
+가슴 뛰도록	NNP
+Lion Heart	NNP
+오빠차	NNP
+사이먼 도미닉	NNP
+우리 사랑하지 말아요	NNP
+쩔어 (GD&T.O.P)	NNP
+I Feel You	NNP
+거북선 (Feat. 팔로알토)	NNP
+I`m Not Sorry (Feat. Eric Bellinger)	NNP
+오늘부터 우리는 (Me gustas tu)	NNP
+New Thang	NNP
+Remember	NNP
+Oasis (Feat. ZICO)	NNP
+PARTY	NNP
+링마벨 (Ring My Bell)	NNP
+사랑할수록 (화생방실 클레오파트라)	NNP
+IF YOU	NNP
+맨정신	NNP
+심쿵해 (Heart Attack)	NNP
+SHAKE IT	NNP
+음오아예 (Um Oh Ah Yeh)	NNP
+아프다	NNP
+LOVE ME RIGHT	NNP
+뱅뱅뱅 (BANG BANG BANG)	NNP
+WE LIKE 2 PARTY	NNP
+와리가리	NNP
+사랑의 시작은 고백에서부터	NNP
+몸매 (MOMMAE) (Feat. Ugly Duck)	NNP
+이럴거면 그러지말지 (Feat. 영현)	NNP
+꺼내 먹어요	NNP
+마음	NNP
+View	NNP
+Madeleine Love	NNP
+Flashlight	NNP
+LOSER	NNP
+BAE BAE	NNP
+I NEED U	NNP
+그 남잔 말야	NNP
+Me You (Feat. 백예린 of 15&)	NNP
+연예할래	NNP
+한번 더 말해줘 (Feat. 장한나)	NNP
+품행제로	NNP
+아예 (Ah Yeah)	NNP
+어머님이 누구니 (Feat. 제시)	NNP
+우연히 봄	NNP
+다른 남자 말고 너	NNP
+CALL ME BABY	NNP
+아무도 모르게 (Prod. by MC몽)	NNP
+꽃이 핀다	NNP
+새벽 가로수길 (With 송유빈)	NNP
+Puss (Prod.by 라이머)	NNP
+두사랑 (Feat. 매드클라운)	NNP
+See You Again (폴 워커 추모 엔딩곡)	NNP
+Ice Cream Cake	NNP
+사월의 눈	NNP
+Apple (Feat. 박재범)	NNP
+The Time Goes On	NNP
+우린 알아	NNP
+사랑 범벅 (Feat. 챈슬러 of the channels)	NNP
+시작이 좋아 2015 (Prod. By 버벌진트)	NNP
+오빠야	NNP
+Samsara (Feat. Emila)	NNP
+My Type (Prod. by 버벌진트)	NNP
+Love Me Like You Do	NNP
+미쳐	NNP
+같은 시간 속의 너	NNP
+그냥 (Just)	NNP
+Worth It (Feat. Kid Ink)	NNP
+또 운다 또	NNP
+슬픔 속에 그댈 지워야만 해	NNP
+유리구슬 (Glass Bead)	NNP
+팔베개 (Pillow) (Feat. 기현)	NNP
+환청 (Feat. 나쑈(NaShow))	NNP
+화 (Feat. 진실 of Mad Soul Child)	NNP
+목소리	NNP
+Angel	NNP
+사랑에 빠지고 싶다	NNP
+니가 모르게 (You Don`t Know)	NNP
+Santa Tell Me	NNP
+LUV	NNP
+HAPPY TOGETHER	NNP
+GOOD BOY	NNP
+세 사람 (With 성시경)	NNP
+Uptown Funk (Feat. Bruno Mars)	NNP
+사뿐사뿐 (Like a Cat)	NNP
+나는 달라 (Feat. BOBBY)	NNP
+산다는 건 (Cheer Up)	NNP
+내 생애 가장 행복한 시간 (Feat. 허각)	NNP
+내가 그리웠니 (Feat. 진실 of Mad Soul Child)	NNP
+언제쯤이면 (Duet.아이유)	NNP
+SOFA	NNP
+BORN HATER (Feat. 빈지노 버벌진트 B.I MINO BOBBY)	NNP
+헤픈엔딩 (Feat. 조원선 of 롤러코스터)	NNP
+0	NNP
+화장 지웠어 (Feat. Zion.T HA:TFELT) (No make up)	NNP
+시간과 낙엽	NNP
+GDFR (Feat. Sage The Gemini And Lookas)	NNP
+그게나야	NNP
+틈	NNP
+손대지마	NNP
+양화대교	NNP
+당신만이	NNP
+위잉위잉	NNP
+너무 보고 싶어	NNP
+독기	NNP
+묘해 너와	NNP
+Sugar	NNP
+Animals	NNP
+연결고리#힙합	NNP
+사랑하긴 했었나요 스쳐가는 인연이었나요 짧지않은 우리 함께했던 시간들이 자꾸 내 마음을 가둬두네	NNP
+위아래	NNP
+너를 사랑해	NNP
+I Swear	NNP
+Best Mistake (Feat. Big Sean)	NNP
+공허해	NNP
+끼부리지마	NNP
+예뻐졌다 (feat. 지코 Of 블락비)	NNP
+잠 못드는 밤 (feat. 펀치(Punch))	NNP
+괜찮아 사랑이야	NNP
+Bang Bang	NNP
+HER	NNP
+최고의 행운	NNP
+Touch my body	NNP
+Lost Stars	NNP
+No One Else Like You	NNP
+Tell Me If You Wanna Go Home	NNP
+Darling	NNP
+A Step You Can`t Take Back	NNP
+Like A Fool	NNP
+A Higher Place	NNP
+Lost Stars	NNP
+이제 그만 싸우자	NNP
+애타는 마음	NNP
+오늘부터 1일 (Day 1)	NNP
+Thinking Out Loud	NNP
+Photograph	NNP
+단발머리 (Short Hair)	NNP
+Maps	NNP
+Good Luck	NNP
+한여름밤의 꿀	NNP
+잊혀지다 (Feat. 양다일)	NNP
+나 왜이래	NNP
+I`m Not The Only One	NNP
+사람냄새	NNP
+Stay With Me	NNP
+Lay Me Down	NNP
+너를 너를 너를	NNP
+너의 의미 (Feat. 김창완)	NNP
+나의 옛날 이야기	NNP
+너를 원해 (Feat. Beenzino)	NNP
+미운오리새끼	NNP
+중독 (Overdose)	NNP
+Problem (Feat. Iggy Azalea)	NNP
+너 사용법	NNP
+Bad (Feat. Vassy) (Radio Edit)	NNP
+2	NNP
+Give Love	NNP
+인연	NNP
+견딜만해 (Feat. 효린)	NNP
+가끔	NNP
+Mr. Chu (On Stage)	NNP
+그 중에 그대를 만나	NNP
+흔한 노래	NNP
+감아 (Feat. Crush)	NNP
+까탈레나 (Catallena)	NNP
+Come Back Home	NNP
+Mr.Mr.	NNP
+보름달 (Feat. Lena)	NNP
+너의 모든 순간	NNP
+썸 (Feat. 릴보이 Of 긱스)	NNP
+안녕	NNP
+짧은 치마 (Miniskirt)	NNP
+Something	NNP
+그대가 분다	NNP
+Happy (Gru`s Theme From Despicable Me 2)	NNP
+My Destiny	NNP
+금요일에 만나요 (Feat. 장이정)	NNP
+Dali Van Picasso	NNP
+겨울 고백	NNP
+12월의 기적 (Miracles in December)	NNP
+Love Is An Open Door	NNP
+How Long Will I Love You	NNP
+거짓말 거짓말 거짓말	NNP
+너에게	NNP
+분홍신	NNP
+처음엔 사랑이란게	NNP
+나란놈이란	NNP
+착해 빠졌어 (Stupid In Love)	NNP
+삐딱하게 (Crooked)	NNP
+Touch Love	NNP
+갖고놀래 (Feat. 다이나믹 듀오)	NNP
+으르렁 (Growl)	NNP
+아는사람 얘기	NNP
+아모르 파티	NNP
+U & I	NNP
+NoNoNo	NNP
+오늘따라 보고싶어서 그래	NNP
+Baaam (Feat. Muzie)	NNP
+빠빠빠	NNP
+My Love	NNP
+All Right	NNP
+Give It To Me	NNP
+넌 너무 야해 (The Way You Make Me Melt) (Feat. 긱스)	NNP
+너 하나야	NNP
+미친연애 (Bad Girl) (Feat. E-Sens)	NNP
+짧은머리	NNP
+Bad Girls	NNP
+잘 있나요	NNP
+청혼하는 거예요	NNP
+미스코리아	NNP
+꼭 한번 만나고 싶다	NNP
+Yoo Hoo	NNP
+Wash Away (Feat. 에일리)	NNP
+이름이 뭐예요?	NNP
+I Love You	NNP
+Hello (Feat. 버벌진트)	NNP
+Bounce	NNP
+Gentleman	NNP
+오늘 밤 (Feat. 배치기)	NNP
+좋아 (Joah)	NNP
+Somebody	NNP
+Love Blossom (러브블러썸)	NNP
+외국인의 고백	NNP
+어때 (Feat. 하림)	NNP
+녹는 중 (Feat. 버벌진트)	NNP
+The Bad Touch (Gordon & Doyle Edit)	NNP
+Rose	NNP
+Counting Stars	NNP
+Man In Love (남자가 사랑할때)	NNP
+기대해	NNP
+그리고 하나	NNP
+Crescendo (크레셴도)	NNP
+It`s Over	NNP
+어느 봄날	NNP
+거북이	NNP
+눈꽃	NNP
+긴 생머리 그녀 (Miss Right)	NNP
+이게 사랑이 아니면 (Feat. 에일리)	NNP
+겨울사랑	NNP
+Dream Girl	NNP
+모르시나요	NNP
+1440	NNP
+있다 없으니까 (Gone Not Around Any Longer)	NNP
+안녕 나야	NNP
+눈물 (Feat. 유진)	NNP
+모노드라마	NNP
+눈물샤워 (Feat. 에일리)	NNP
+I’m Sorry	NNP
+Special Girl (Feat. Bumkey)	NNP
+시작이 좋아 (Feat. 강민희)	NNP
+강북멋쟁이	NNP
+싫다	NNP
+I Got A Boy	NNP
+혼자라고 생각말기	NNP
+Dancing Queen	NNP
+Goodbye To Romance	NNP
+매력있어	NNP
+Treasure	NNP
+When I Was Your Man	NNP
+크리스마스니까	NNP
+Talk That	NNP
+카페인	NNP
+다리꼬지마	NNP
+되돌리다	NNP
+허수아비	NNP
+나쁜 사람	NNP
+힐링이 필요해	NNP
+하지 못한 말	NNP
+만약에 말야 (전우성 Solo)	NNP
+Officially Missing You Too	NNP
+? (물음표) (Feat. 최자 Zion.T)	NNP
+씨스루 (Feat. Zion.T 개코)	NNP
+똑같은 사랑 똑같은 이별	NNP
+1234 (원투쓰리포)	NNP
+귀여워	NNP
+독 (Feat. E-Sens)	NNP
+휘파람	NNP
+Ice Cream	NNP
+닐리리맘보	NNP
+저녁 하늘	NNP
+먼지가 되어	NNP
+남자 없이 잘 살아	NNP
+My Son	NNP
+말리꽃 (원곡가수 이승철)	NNP
+이러지마 제발 (Please Don`t...)	NNP
+Fine Thank You And You	NNP
+춥다 (Feat. 이하이)	NNP
+피어나	NNP
+아마추어	NNP
+사랑은 눈꽃처럼	NNP
+Missing You (Feat. 김윤아)	NNP
+크레용 (Crayon)	NNP
+그XX	NNP
+아프다	NNP
+Poison	NNP
+립스틱 (Lip Stick)	NNP
+좋겠어 (I Wish)	NNP
+느린노래	NNP
+니가 싫어	NNP
+Sexy Love	NNP
+우리 사랑 이대로	NNP
+홀로 (Feat. 김나영)	NNP
+All For You	NNP
+Pandora	NNP
+I Need You	NNP
+달빛바다	NNP
+남자도 우나요	NNP
+가수가 된 이유	NNP
+자꾸만 자꾸만	NNP
+Only One	NNP
+아름다운 밤이야	NNP
+한여름밤의 꿈	NNP
+어땠을까 (Feat. 박정현)	NNP
+강남스타일	NNP
+뜨거운 안녕 (Feat. 성시경)	NNP
+Midnight (별 헤는 밤)	NNP
+77학개론 (Feat. 리쌍 김진표)	NNP
+청개구리 (Feat. G-Dragon)	NNP
+내 사랑아	NNP
+방구석 날라리	NNP
+I Love You	NNP
+Day By Day	NNP
+Aqua Man	NNP
+Boogie On & On	NNP
+미안해서 미안해	NNP
+Loving U (러빙유)	NNP
+안되겠더라	NNP
+Lucky Strike	NNP
+한사람	NNP
+One More Night	NNP
+정말로 사랑한다면	NNP
+그댈 마주하는건 힘들어 (그마힘)	NNP
+충분히 예뻐	NNP
+소나기 (주르르루)	NNP
+네온사인	NNP
+Flashback	NNP
+가슴이 시린 게	NNP
+굿바이데이	NNP
+Electric Shock	NNP
+illa illa (일라 일라)	NNP
+굿모닝 (Feat. 권정열)	NNP
+안좋을때 들으면 더 안좋은 노래	NNP
+Monster	NNP
+Like this	NNP
+STILL ALIVE	NNP
+입장정리 (Feat. 최자 Simon D)	NNP
+To You	NNP
+High High	NNP
+너에게 배운다 (My Love)	NNP
+잘자요 굿나잇	NNP
+Call You Mine (Feat. Geologic)	NNP
+Groovin`	NNP
+2HOT	NNP
+If You Wonder	NNP
+Good Boy (Feat. 용준형 of 비스트)	NNP
+추격자	NNP
+I 돈 Care (Feat. 서수민PD)	NNP
+하루 끝	NNP
+복숭아	NNP
+아름다운 밤	NNP
+나쁜놈 (Feat. 소야)	NNP
+Hush	NNP
+목소리 (Feat. 개리)	NNP
+She`s Gone	NNP
+Twinkle	NNP
+너뿐이야 (You`re The One)	NNP
+다른 사람 품에 안겨서 (Someone else) Duet with 가인	NNP
+씨스루 (Feat. 개코 Zion.T)	NNP
+떠나간다	NNP
+Payphone (Feat. Wiz Khalifa)	NNP
+나혼자 (Alone)	NNP
+두 마리	NNP
+Volume Up	NNP
+사랑은 다 그런거래요	NNP
+여수 밤바다	NNP
+꽃송이가	NNP
+첫사랑	NNP
+외로움 증폭장치 (브래드 드럼 한판 쉬기)	NNP
+전활 거네	NNP
+향수	NNP
+골목길 어귀에서	NNP
+미치게 보고싶은	NNP
+Hey You	NNP
+기다려 그리고 준비해	NNP
+Venus	NNP
+이상형	NNP
+한참 지나서	NNP
+Sherlock.셜록 (Clue + Note)	NNP
+곰인형 (Feat. 해금)	NNP
+아직 사랑한다	NNP
+Love Day	NNP
+그대 한 사람	NNP
+너도 나처럼	NNP
+자니 (Feat. DYNAMICDUO)	NNP
+Call Me Maybe	NNP
+Fantastic Baby	NNP
+Blue	NNP
+BAD BOY	NNP
+사랑먼지	NNP
+재미없어	NNP
+Falling	NNP
+Touch	NNP
+잊었니	NNP
+니가 필요해 (I Need You)	NNP
+Heaven	NNP
+Marry You	NNP
+생각날거야	NNP
+겁이나서 (With 백지영)	NNP
+난리나	NNP
+내가 노래를 못해도	NNP
+지독하게	NNP
+내가 싫다	NNP
+Hit U	NNP
+이럴 줄 알았어	NNP
+널 사랑하겠어	NNP
+베짱이 찬가	NNP
+전쟁이야	NNP
+Livin` My Love	NNP
+키 큰 노총각 이야기	NNP
+미치겠어	NNP
+거기서거기 (Without You)	NNP
+Lovey-Dovey	NNP
+속상해서 (술 한잔 해요 Part 2)	NNP
+우리 사랑했잖아	NNP
+촌스럽게 굴지마 (Feat. 용준형)	NNP
+그 노래를 틀때마다	NNP
+살기 위해서	NNP
+Trouble Maker	NNP
+너랑 나	NNP
+비밀	NNP
+삼촌 (Feat. 이적)	NNP
+불타는 금요일 (Friday Night)	NNP
+My My	NNP
+서울사람들	NNP
+Ma Boy 2 (Feat. 효린)	NNP
+Replay	NNP
+Cry Cry	NNP
+사랑에 빠지고 싶다	NNP
+Be My Baby	NNP
+죽고 싶단 말 밖에	NNP
+Swing Baby	NNP
+G.N.O.	NNP
+그댄 달라요	NNP
+클렌징크림	NNP
+그 남자 그 여자	NNP
+Tomorrow (Feat. 태양)	NNP
+막걸리나	NNP
+Get It In (Feat. Tiger JK & 정인) (Korean Ver.)	NNP
+그리워 그리워	NNP
+친구잖아	NNP
+나쁘다 (Feat. 진실)	NNP
+The Boys	NNP
+Mr.Taxi (Korean Ver.)	NNP
+사랑은 Move	NNP
+여기가 아파	NNP
+미인	NNP
+Brown City	NNP
+연애시대 (Feat. Ra.D / Nar. 한효주)	NNP
+Airbag (Feat. 나얼)	NNP
+샹하이 로맨스 (上海之戀)	NNP
+그대와 나 설레임	NNP
+Open Arms (Journey) (Feat. 크리스티나)	NNP
+Poker Face (Lady GaGa)	NNP
+사랑과 우정 사이 (피노키오) (with 김연우)	NNP
+동경소녀	NNP
+여우야	NNP
+달의 몰락	NNP
+내가 이렇지 (Feat. 하동균)	NNP
+Sex Apeal (Max Farenthide Radio Edit) (Feat. Mike W.)	NNP
+파라다이스 (Paradise)	NNP
+Sixth Sense	NNP
+Hot Shot	NNP
+난 좋아	NNP
+그대이길 바래요 (With 케이윌)	NNP
+STEP	NNP
+I Was Born To Love You	NNP
+좋아보여 (Feat. 검정치마)	NNP
+안녕이라고 말하지마	NNP
+사랑 사랑아	NNP
+나란 놈은 답은 너다 (Feat. 하림)	NNP
+회상 (Feat. 백지영)	NNP
+Top Girl	NNP
+TV를 껐네...  (Feat. 윤미래 권정열)	NNP
+안아줘요	NNP
+가슴으로 운다 (Feat. 아이린 윤미)	NNP
+블링블링 (Bling Bling)	NNP
+So Cool (쏘쿨)	NNP
+You Are So Beautiful	NNP
+Mr. Simple	NNP
+Ugly	NNP
+Grand Final (Feat. 정인 & MC 날유)	NNP
+나 가거든 (If I Leave) (조수미)	NNP
+술이야 (바이브)	NNP
+Hate You	NNP
+내꺼하자	NNP
+밤 하늘에	NNP
+남자니까 웃는거야	NNP
+Good-bye Baby	NNP
+오늘도 사랑해	NNP
+모나리자 (Mona Lisa)	NNP
+한번만 안아줘	NNP
+Bubble Pop!	NNP
+바람났어 (Feat. 박봄)	NNP
+압구정 날라리	NNP
+나만 부를 수 있는 노래	NNP
+흔들어 주세요	NNP
+순정마초	NNP
+말하는 대로	NNP
+정주나요	NNP
+죽을래 사귈래	NNP
+찹쌀떡	NNP
+다이어리	NNP
+A Bitter Day (Feat. 용준형 of 비스트 G.NA)	NNP
+Roly-Poly	NNP
+넌 내게 반했어	NNP
+랄랄라 (Feat. 소야)	NNP
+Love On Top	NNP
+Moves Like Jagger (Feat. Christina Aguilera) (Studio Recording From The Voice Performance)	NNP
+내가 제일 잘 나가	NNP
+Sweet Dream	NNP
+그 입술을 막아본다	NNP
+얼음꽃 (Feat. 김세황)	NNP
+Hands Up	NNP
+바보 (박효신)	NNP
+Hot Summer	NNP
+조율	NNP
+그렇고 그런 사이	NNP
+살다가 한번쯤	NNP
+Midnight Circus	NNP
+별빛달빛	NNP
+나를 잊지 말아요	NNP
+천일동안 (이승환)	NNP
+내 손을 잡아	NNP
+Hello Hello	NNP
+나와 같다면 (김장훈)	NNP
+늪 (조관우)	NNP
+여러분 (윤복희)	NNP
+사랑	NNP
+보통	NNP
+두근두근	NNP
+Fiction	NNP
+그날에 우리	NNP
+비가 오는 날엔	NNP
+Lonely	NNP
+이러쿵 저러쿵	NNP
+내 사람이라서	NNP
+Golden Lady (Feat. 현아)	NNP
+이젠 그랬으면 좋겠네 (조용필)	NNP
+미련 (김건모)	NNP
+미인	NNP
+Ma Boy (마보이)	NNP
+Love Alone	NNP
+Shampoo	NNP
+Don`t Cry	NNP
+피노키오 (Danger)	NNP
+몰라요	NNP
+배가 불렀지 (Feat. GaeKo Of DYNAMIC DUO)	NNP
+들리나요	NNP
+별 짓 다해봤는데	NNP
+다며 (Feat. 마이티마우스)	NNP
+LOVE SONG	NNP
+STUPID LIAR	NNP
+To Me (내게로..)	NNP
+너 밖엔 없더라	NNP
+거울아 거울아	NNP
+방콕시티 (Bangkok City)	NNP
+La Vida Loca	NNP
+Heart To Heart	NNP
+메아리	NNP
+아파 아이야	NNP
+이태원 프리덤 (With JYP)	NNP
+제발	NNP
+약속	NNP
+You Are My Lady	NNP
+Dash (With YB)	NNP
+첫인상	NNP
+아무일도 없었다	NNP
+직감	NNP
+나 항상 그대를 (With YB)	NNP
+반짝반짝	NNP
+가슴 시린 이야기 (Feat. 용준형)	NNP
+가슴이 뛴다	NNP
+가질 수 없는 너	NNP
+미친거니 (Feat. 방용국)	NNP
+Tonight	NNP
+Cafe	NNP
+What Is Right	NNP
+나만 몰랐던 이야기	NNP
+파파라치 (Feat. 에릭)	NNP
+Just The Way You Are	NNP
+내꺼중에 최고	NNP
+사랑은 은하수 다방에서	NNP
+Party Rock Anthem (Feat. Lauren Bennett Goon Rock)	NNP
+Someone Like You	NNP
+Rolling In The Deep	NNP
+Black & White	NNP
+톡톡 (Tok Tok) (Feat. Soya)	NNP
+Bohemian Rhapsody (2011 Remaster)	NNP
+좋은 날	NNP
+미리 메리 크리스마스 (Feat. 천둥)	NNP
+Love The Way You Lie (Part II) (Feat. Eminem)	NNP
+I Got My Eye On You (Cristian Marchi & Paolo Sandrini Perfect Edit) (Feat. Luciana)	NNP
+그땐 그땐 그땐	NNP
+널 생각해	NNP
+아메리카노	NNP
+Love The Way You Lie (Feat. Rihanna)	NNP
+못해 (Feat. 美)	NNP
+헤어지지 못하는 여자 떠나가지 못하는 남자 (Feat. 정인)	NNP
+Empire State Of Mind (Feat. Alicia Keys)	NNP
+Halo	NNP
+Viva La Vida	NNP
+Slow Motion	NNP
+Lucky (Feat. Colbie Caillat)	NNP
+I`m Yours	NNP
+I`m Yours (Album Version)	NNP
+Falling Slowly	NNP
+추억은 사랑을 닮아	NNP
+거리에서	NNP
+서쪽 하늘	NNP
+광대	NNP
+Fix You	NNP
+인연 (동녘바람)	NNP
+바람이 분다	NNP
+Sunday Morning	NNP
+너에게 쓰는 편지	NNP
+The Scientist	NNP
+Don`t Know Why	NNP
+여전히 아름다운지 (Feat. 김연우)	NNP

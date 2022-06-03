@@ -1,8 +1,10 @@
+from gc import get_objects
 from django.http import JsonResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.hashers import make_password, check_password
+import requests
 from .forms import LoginForm, JoinForm
-from .models import Music_prefer, User
+from .models import Music_prefer, Playlist, User
 
 def base(request):
     return render(request, 'base.html')
@@ -15,10 +17,6 @@ def elements(request):
 
 def generic(request):
     return render(request, 'generic.html')
-    
-
-def myinfo(reqeust):
-    pass
 
 def login(request):
     if request.method == 'GET':
@@ -38,6 +36,7 @@ def login(request):
             if check_password(password, user.password):
                 # 로그인 처리 (세션 사용)
                 request.session['user'] = {'id': user.id, 'userid': user.userid}
+                request.session['playlist'] = ",".join([track.youtube for track in Playlist.objects.filter(user=user).order_by('-id')])
                 return redirect('/')   # 로그인 성공후 home 으로 redirect
             else:
                 # 비밀번호 불일치.  로그인 실패 처리
@@ -83,3 +82,44 @@ def checkid(request):
         context['data'] = "not exist" # 아이디 중복 없음
 
     return JsonResponse(context)
+
+def addPlaylist(request):
+    if request.session['user']:
+        userid = request.session['user']['id']
+    else:
+        return JsonResponse({'data': 'nologin'})
+
+    youtube = request.GET.get('youtube')
+    track = request.GET.get('track')
+    artist = request.GET.get('artist')
+
+    play = Playlist(user=get_object_or_404(User, id=userid), youtube=youtube, track=track, artist=artist)
+    play.save()
+    request.session['playlist'] = ",".join([track.youtube for track in Playlist.objects.filter(user=userid).order_by('-id')])
+    return JsonResponse({'data': request.session['playlist']})
+
+def getPlaylist(request):
+    if request.session['user']:
+        userid = request.session['user']['id']
+    else:
+        return JsonResponse({'data': 'nologin'})
+
+    return JsonResponse({'playlist': ",".join([track.youtube for track in Playlist.objects.filter(user=userid).order_by('-id')])})
+
+def showPlaylist(request):
+    if request.session['user']:
+        userid = request.session['user']['id']
+    else:
+        return JsonResponse({'data': 'nologin'})
+
+    context = [
+        {
+            'youtube': play.youtube,
+            'track': play.track,
+            'artist': play.artist,
+        }
+        for play in Playlist.objects.filter(user=userid).order_by('-id')
+    ]
+
+    
+    return JsonResponse({'playlist': context})

@@ -23,9 +23,11 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('elements/', views.elements, name='elements'),
     path('generic/', views.generic, name='generic'),
-    path('myinfo/', views.myinfo, name='myinfo'),
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
     path('join/', views.join, name='join'),
     path('checkid/', views.checkid, name='checkid'),
+    path('addPlaylist/', views.addPlaylist, name='addPlaylist'),
+    path('getPlaylist/', views.getPlaylist, name='getPlaylist'),
+    path('showPlaylist/', views.showPlaylist, name='showPlaylist'),
 ]

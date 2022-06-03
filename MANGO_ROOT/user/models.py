@@ -31,7 +31,9 @@ class Music_prefer(models.Model):
 
 class Playlist(models.Model):
     user = models.ForeignKey('user.User', on_delete=models.CASCADE)
-    song_num = models.IntegerField(default=0, verbose_name='곡 번호')
+    youtube = models.CharField(max_length=200, verbose_name='유튜브url')
+    track = models.CharField(max_length=200, verbose_name='제목')
+    artist = models.CharField(max_length=200, verbose_name='아티스트')
     order = models.IntegerField(default=0, verbose_name = '곡 순서')
 
     class Meta:
@@ -40,4 +42,4 @@ class Playlist(models.Model):
         verbose_name_plural = '플레이리스트(들)'
 
     def __str__(self):
-        return self.user + '의 곡'
+        return self.user.userid + '의 곡'

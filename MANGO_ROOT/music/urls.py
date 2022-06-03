@@ -19,7 +19,6 @@ from . import views
 app_name = 'Music'
 
 urlpatterns = [
-    path('song_detail/<str:song>/', views.song_detail, name='song_detail'),
     path('top/', views.top, name='top'),
     path('search/', views.search, name='search'),
 ]
