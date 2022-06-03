@@ -80,7 +80,11 @@
                     datatype:'json',
                     success:function(response){
                         if(play){
-                            window.parent.document.querySelector('#player').src = 'https://www.youtube.com/embed?playlist='+response.data+'&autoplay=1&loop=1'
+                            window.parent.document.querySelector('#player').src = 'https://www.youtube.com/embed?autoplay=1&playlist='+response.data+'&autoplay=1&loop=1'
+                            // 띄우기
+                            if($(window.parent.document.querySelector('#playerdiv')).css('display')=='none'){
+                                $(window.parent.document.querySelector('#playerdiv')).slideToggle()
+                             }
                         }else{
                             alert('{{data.name}} 을 플레이리스트에 추가했습니다!')
                         }
