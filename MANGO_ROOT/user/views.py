@@ -111,10 +111,12 @@ def getLyrics(track, artist):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
     q_url = 'https://www.melon.com/search/song/index.htm?q='+query
-    print(q_url)
-    trackid = BeautifulSoup(requests.get(q_url, headers=headers).text, 'html.parser').select_one('table tbody tr td div.wrap.pd_none.left input')['value']
-    url = 'https://www.melon.com/song/popup/lyricPrint.htm?songId='+trackid
-    temp_lyrics =  str(BeautifulSoup(requests.get(url, headers=headers).text, 'html.parser').select_one('.box_lyric_text')).replace('<div class="box_lyric_text">', '').replace('</div>', '').replace('\r', '').replace('\n', '').replace('\t', '').split('<br/>')
+    try:
+        trackid = BeautifulSoup(requests.get(q_url, headers=headers).text, 'html.parser').select_one('table tbody tr td div.wrap.pd_none.left input')['value']
+        url = 'https://www.melon.com/song/popup/lyricPrint.htm?songId='+trackid
+        temp_lyrics =  str(BeautifulSoup(requests.get(url, headers=headers).text, 'html.parser').select_one('.box_lyric_text')).replace('<div class="box_lyric_text">', '').replace('</div>', '').replace('\r', '').replace('\n', '').replace('\t', '').split('<br/>')
+    except Exception as e:
+        return '가사 불러오기 실패'
     return "\n".join(temp_lyrics)
 
 def getPlaylist(request):

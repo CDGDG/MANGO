@@ -51,75 +51,78 @@ def search(request):
     data = req.json()
 
     context = {}
-    if type=='album':
-        artistget = request.GET.get('artist')
-        req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
-        if req2.status_code != 200:
-            client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
-            client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
-            endpoint = 'https://accounts.spotify.com/api/token'
-
-            encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
-
-            headers = {"Authorization": 'Basic {}'.format(encoded)}
-            payload = {'grant_type': 'client_credentials'}
-
-            response = requests.post(endpoint, data=payload, headers=headers)
-            access_token = json.loads(response.text)['access_token']
+    try:
+        if type=='album':
+            artistget = request.GET.get('artist')
             req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
-        data2 = req2.json()
-        d =  [album for album in data['albums']['items'] for artist in album['artists'] if artist['id'] in [d['id'] for d in data2['artists']['items']]][0]
-        context['image'] = d['images'][1]['url']
-        context['image_small'] = d['images'][2]['url']
-        context['name'] = d['name']
-        context['artist'] = ','.join([artist['name'] for artist in d['artists']])
-        context['tracks'] = requests.get('https://api.spotify.com/v1/albums/' + data['albums']['items'][0]['id'] + '/tracks?access_token='+access_token).json()['items']
-    elif type=='artist':
-        d = data['artists']['items'][0]
-        req2 = requests.get(f'https://api.spotify.com/v1/artists/{d["id"]}/top-tracks?market=KR&access_token={access_token}')
-        if req2.status_code != 200:
-            client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
-            client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
-            endpoint = 'https://accounts.spotify.com/api/token'
+            if req2.status_code != 200:
+                client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
+                client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
+                endpoint = 'https://accounts.spotify.com/api/token'
 
-            encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
+                encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
 
-            headers = {"Authorization": 'Basic {}'.format(encoded)}
-            payload = {'grant_type': 'client_credentials'}
+                headers = {"Authorization": 'Basic {}'.format(encoded)}
+                payload = {'grant_type': 'client_credentials'}
 
-            response = requests.post(endpoint, data=payload, headers=headers)
-            access_token = json.loads(response.text)['access_token']
+                response = requests.post(endpoint, data=payload, headers=headers)
+                access_token = json.loads(response.text)['access_token']
+                req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
+            data2 = req2.json()
+            d =  [album for album in data['albums']['items'] for artist in album['artists'] if artist['id'] in [d['id'] for d in data2['artists']['items']]][0]
+            context['image'] = d['images'][1]['url']
+            context['image_small'] = d['images'][2]['url']
+            context['name'] = d['name']
+            context['artist'] = ','.join([artist['name'] for artist in d['artists']])
+            context['tracks'] = requests.get('https://api.spotify.com/v1/albums/' + data['albums']['items'][0]['id'] + '/tracks?access_token='+access_token).json()['items']
+        elif type=='artist':
+            d = data['artists']['items'][0]
             req2 = requests.get(f'https://api.spotify.com/v1/artists/{d["id"]}/top-tracks?market=KR&access_token={access_token}')
-        data2 = req2.json() 
-        context['image'] = d['images'][1]['url']
-        context['name'] = d['name']
-        context['genre'] = d['genres']
-        context['tracks'] = data2['tracks']
-    elif type=='track':
-        artistget = request.GET.get('artist')
-        req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
-        if req2.status_code != 200:
-            client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
-            client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
-            endpoint = 'https://accounts.spotify.com/api/token'
+            if req2.status_code != 200:
+                client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
+                client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
+                endpoint = 'https://accounts.spotify.com/api/token'
 
-            encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
+                encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
 
-            headers = {"Authorization": 'Basic {}'.format(encoded)}
-            payload = {'grant_type': 'client_credentials'}
+                headers = {"Authorization": 'Basic {}'.format(encoded)}
+                payload = {'grant_type': 'client_credentials'}
 
-            response = requests.post(endpoint, data=payload, headers=headers)
-            access_token = json.loads(response.text)['access_token']
+                response = requests.post(endpoint, data=payload, headers=headers)
+                access_token = json.loads(response.text)['access_token']
+                req2 = requests.get(f'https://api.spotify.com/v1/artists/{d["id"]}/top-tracks?market=KR&access_token={access_token}')
+            data2 = req2.json() 
+            context['image'] = d['images'][1]['url']
+            context['name'] = d['name']
+            context['genre'] = d['genres']
+            context['tracks'] = data2['tracks']
+        elif type=='track':
+            artistget = request.GET.get('artist')
             req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
-        data2 = req2.json()
-        d = [track for track in data['tracks']['items'] for ar in track['artists'] if ar['id'] in [d['id'] for d in data2['artists']['items']]][0]
-        context['album'] = d['album']['name']
-        context['release'] = d['album']['release_date']
-        context['image'] = d['album']['images'][1]['url']
-        context['name'] = d['name']
-        context['artist'] = ", ".join([arts['name'] for arts in d['artists']])
-        context['artists'] = d['artists']
-        context['lyrics'] = getLyrics(context['name'], artistget).split('\n')
+            if req2.status_code != 200:
+                client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
+                client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
+                endpoint = 'https://accounts.spotify.com/api/token'
+
+                encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
+
+                headers = {"Authorization": 'Basic {}'.format(encoded)}
+                payload = {'grant_type': 'client_credentials'}
+
+                response = requests.post(endpoint, data=payload, headers=headers)
+                access_token = json.loads(response.text)['access_token']
+                req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
+            data2 = req2.json()
+            d = [track for track in data['tracks']['items'] for ar in track['artists'] if ar['id'] in [d['id'] for d in data2['artists']['items']]][0]
+            context['album'] = d['album']['name']
+            context['release'] = d['album']['release_date']
+            context['image'] = d['album']['images'][1]['url']
+            context['name'] = d['name']
+            context['artist'] = ", ".join([arts['name'] for arts in d['artists']])
+            context['artists'] = d['artists']
+            context['lyrics'] = getLyrics(context['name'], artistget).split('\n')
+    except IndexError as ie:
+        context['error'] = 'IndexError'
 
     return render(request, f'{type}.html',{'data': context})
 

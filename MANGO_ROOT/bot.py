@@ -1,5 +1,9 @@
+import random
 import threading
 import json
+
+from bs4 import BeautifulSoup
+import requests
 
 from config.DatabaseConfig import *
 from utils.Database import Database
@@ -50,6 +54,8 @@ def to_client(conn, addr, params):
         print('데이터 수신 :', recv_json_data['Query'])
         query = recv_json_data['Query']
 
+        send_json_data_str = {}
+
         # 의도 파악
         intent_predict = intent.predict_class(query)
         intent_name = intent.labels[intent_predict]
@@ -61,9 +67,16 @@ def to_client(conn, addr, params):
             # 사용자의 플레이리스트를 받아와야함..
             moodslist = []
             playlist = recv_json_data['Playlist']
+            # 플레이리스트 취향 분석
             for lyric in [track['lyrics'] for track in playlist.values()]:
                 moodslist.append(mood.predict_mood(lyric))
-            pd.DataFrame([[i, moodslist.count(i)] for i in mood.labels]).set_index(0)
+            # 그래프 만들기
+            pd.DataFrame([[i, moodslist.count(i)] for i in mood.labels]).set_index(0)[1]
+            # 음악 추천
+            most_mood = max(moodslist, key=moodslist.count)
+            send_json_data_str['recommend'] =  json.dumps(get_recommend_track(most_mood), ensure_ascii=False)
+            send_json_data_str['most_mood'] = most_mood
+
             
         # 개체명 파악
         ner_predicts = ner.predict(query)
@@ -80,16 +93,19 @@ def to_client(conn, addr, params):
             answer_image = None
 
         # 검색된 답변데이터와 함께 앞서 정의한 응답하는 JSON 으로 생성
-        send_json_data_str = {
-            # 'Emotion': emotion,
-            'Answer': answer,
-            'AnswerImageUrl': answer_image,
-            'Intent': intent_name,
-            'NER': str(ner_predicts),
-        }
+        send_json_data_str['Answer'] = answer
+        send_json_data_str['Intent'] = intent_name
+        send_json_data_str['NER'] = str(ner_predicts)
+        # send_json_data_str = {
+        #     # 'Emotion': emotion,
+        #     'Answer': answer,
+        #     'AnswerImageUrl': answer_image,
+        #     'Intent': intent_name,
+        #     'NER': str(ner_predicts),
+        # }
 
         # json 텍스트로 변환. 하여 전송
-        message = json.dumps(send_json_data_str)
+        message = json.dumps(send_json_data_str, ensure_ascii=False)
         conn.send(message.encode())
 
         
@@ -102,6 +118,27 @@ def to_client(conn, addr, params):
         conn.close()
             
     # 함수가 종료되면 쓰레드도 끝남
+
+def get_recommend_track(query):
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+    }
+
+    url = 'https://www.melon.com/dj/djfinder/djfinder_inform.htm?djSearchType=P&djSearchKeyword='+query
+
+    playlist_urls = ["https://www.melon.com/mymusic/dj/mymusicdjplaylistview_inform.htm?plylstSeq=" + btn['data-djcol-no'] for btn in BeautifulSoup(requests.get(url, headers=headers).text, 'html.parser').select('#djPlylstList button.btn_djplylst_like')]
+
+    playlist = playlist_urls[random.randint(0, len(playlist_urls)-1)]
+
+    tracks = BeautifulSoup(requests.get(playlist, headers=headers).text, 'html.parser').select('div#pageList table tbody tr')
+    song = tracks[random.randint(0, len(tracks)-1)]
+    track = {
+            'image': song.select_one(' div.wrap a.image_typeAll > img')['src'],
+            'title': song.select_one(' div.wrap div.wrap_song_info .rank01 a').text.strip(),
+            'artists': song.select_one(' div.wrap div.wrap_song_info .rank02 a').text.strip(),
+            'url': "https://www.melon.com/song/detail.htm?songId=" + song.select_one('div.wrap.t_right input')['value']
+            }
+    return track
 
 if __name__ == '__main__':
     # 질문/답변 학습 디비 연결 객체 생성

@@ -9,7 +9,11 @@
         <div style='clear:both;'></div>
         <div class="inner">
             <header class="major">
+                {% if data.error == "IndexError" %}
+                <h2>곡 정보 찾기를 실패했습니다.</h2>
+                {% else %}
                 <h2>곡 정보</h2>
+                {% endif %}
             </header>
             <img src="{{data.image}}" alt="앨범 커버">
             <h2>{{data.name}}</h2>

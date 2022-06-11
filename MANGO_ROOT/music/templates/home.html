@@ -65,6 +65,7 @@
     $player = $('#player');
     $playerdiv = $('#playerdiv')
     $chatbox = $('#chatbox');
+    api_key = 'AIzaSyD-MlnJmv8El7gQLdQNALcPxlmOgXkuBMY'
     $(function(){
         // SEND 버튼을 누르거나
         $('#sendbtn').click(function(){
@@ -78,6 +79,40 @@
             }
         })
     })
+
+    // 음악 재생하기
+    function play_(artist, track, play){
+        $.ajax({
+            url: `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${artist} ${track}&type=video&key=`+api_key,
+            datatype:'json',
+            success:function(response){
+                var videoId = response.items[0].id.videoId
+                dataname = track.replace('&amp;', '953964')
+                $.ajax({
+                    url: ("{% url 'User:addPlaylist' %}?youtube=12345&track="+dataname+"&artist="+ artist).replace(/12345/, videoId.toString()),
+                    datatype:'json',
+                    success:function(response){
+                        if(play){
+                            document.querySelector('#player').src = 'https://www.youtube.com/embed?autoplay=1&playlist='+response.data+'&autoplay=1&loop=1'
+                            // 띄우기
+                            if($('#playerdiv').css('display')=='none'){
+                                $('#playerdiv').slideToggle()
+                             }
+                        }else{
+                            alert(track+' 을 플레이리스트에 추가했습니다!')
+                        }
+                    }
+                })
+            }
+        })
+    }
+    // iframe 곡 정보
+    function info_(track, artist){
+        artist = artist.replace('&', '953964')
+        console.log(`{% url "Music:search" %}?type=track&item=${track}&artist=${artist}`)
+        $('#iframe').attr('src', `{% url "Music:search" %}?type=track&item=${track}&artist=${artist}`)
+    }    
+
     function send_message(){
         const chattext = $('#chattext').val().trim()
     
@@ -115,7 +150,7 @@
     
             success: function(response){
                 // response.Answer 에 담겨있다.
-        
+                console.log(response)
                 answerText = (response.Answer.length>15?response.Answer.split('').reduce((acc,cur,i)=>{
                     return acc+cur+(i%15==0?"<br>":"")
                 }) :response.Answer)
@@ -189,11 +224,34 @@
         
                     // 스크롤 조정하기
                     $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
-                }else{
-                    // 답변 넣기
+                // 음악취향
+                }else if(response.Intent == '음악취향'){
+                    recommend_music = JSON.parse(response.recommend)
+                    recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.most_mood}</p>
+                        <table style="border-radius:10px;margin-bottom:3%;color:white;padding:3%;background:#424242;text-align:center;display:table;table-layout:fixed;">
+                            <tr>
+                                <td style='vertical-align:middle' rowspan=2 colspan=3><img src=${recommend_music.image}/></td>
+                                <td style='vertical-align:middle' colspan=5>${recommend_music.title}</td>
+                            </tr>
+                            <tr>
+                                <td style='vertical-align:middle' colspan=5>${recommend_music.artists}</td>
+                            </tr>
+                            <tr>
+                                <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", true)'><i class="fa-solid fa-play"></i></td>
+                                <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", false)'><i class="fa-solid fa-plus"></i></td>
+                                <td colspan=2 style='background-image: url("/static/images/MANGO.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
+                                onclick='info_("${recommend_music.artists}","${recommend_music.title}")'></td>
+                                <td colspan=2 style='background-image: url("/static/images/MELON.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
+                                onclick='window.open("${recommend_music.url}")'></td>
+                            </tr>
+                        </table>`
+                    bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+                        recommend_text+"</span></div>";
+                    $chatbox.append(bottext)
+                    $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+                }
+                else{
                     $chatbox.append(bottext);
-        
-                    // 스크롤 조정하기
                     $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
                 }
             }
