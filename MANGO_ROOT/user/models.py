@@ -34,6 +34,7 @@ class Playlist(models.Model):
     youtube = models.CharField(max_length=200, verbose_name='유튜브url')
     track = models.CharField(max_length=200, verbose_name='제목')
     artist = models.CharField(max_length=200, verbose_name='아티스트')
+    lyrics = models.TextField(verbose_name='가사')
     order = models.IntegerField(default=0, verbose_name = '곡 순서')
 
     class Meta:

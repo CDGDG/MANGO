@@ -7,17 +7,24 @@ from utils.BotServer import BotServer
 from utils.Preprocess import Preprocess
 from models.intent.IntentModel import IntentModel
 from models.ner.NerModel import NerModel
+from models.mood.LyricModel import LyricModel
 from utils.FindAnswer import FindAnswer
+import os
+import pandas as pd
 
 # 전처리 객체 생성
-p = Preprocess(word2index_dic='train_tools/dict/chatbot_dict2.bin',
-               userdic='utils/mango_dic.txt')
+intent_p = Preprocess(word2index_dic='train_tools/dict/chatbot_dictionary.bin', userdic='utils/mango_dict_total.txt')
+
+lyric_p = Preprocess(word2index_dic=os.path.join('./train_tools/dict', 'lyric_dict.bin'))
 
 # 의도 파악 모델
-intent = IntentModel(model_name='models/intent/intent_model.h5', preprocess=p)
+intent = IntentModel(model_name='models/intent/intent_model.h5', preprocess=intent_p)
 
 # 개체명 인식 모델
-ner = NerModel(model_name='models/ner/ner_model.h5', preprocess=p)
+ner = NerModel(model_name='models/ner/ner_model.h5', preprocess=intent_p)
+
+# 가사 분석 모델
+mood = LyricModel(model_name='models/mood/lyric_model.h5', preprocess=lyric_p)
 
 # 클라이언트 요청을 수행하는 함수 (쓰레드에 담겨 실행될거임)
 def to_client(conn, addr, params):
@@ -28,9 +35,9 @@ def to_client(conn, addr, params):
         
         # 데이터 수신 (클라이언트로부터 데이터를 받기 위함)
         # conn 은 챗봇 클라이언트 소켓 객체 ( 이 객체를 통해 클라이언트 데이터 주고 받는다 )
-        read = conn.recv(2048)  # recv() 는 수신 데이터가 있을 때 까지 블로킹, 최대 2048 바이트만큼 수신
+        read = conn.recv(131072)  # recv() 는 수신 데이터가 있을 때 까지 블로킹, 최대 2048 바이트만큼 수신
                                 # 클라이언트 연결이 끊어지거나 오류발생시 블로킹 해제되고 None 리턴
-        print('===========================')
+        print('=== ' * 30)
         print('Connection from: %s' % str(addr))
         
         if read is None or not read:
@@ -40,7 +47,7 @@ def to_client(conn, addr, params):
             
         # 수신된 데이터(json) 을 파이썬 객체로 변환
         recv_json_data = json.loads(read.decode())
-        print('데이터 수신 :', recv_json_data)
+        print('데이터 수신 :', recv_json_data['Query'])
         query = recv_json_data['Query']
 
         # 의도 파악
@@ -48,6 +55,16 @@ def to_client(conn, addr, params):
         intent_name = intent.labels[intent_predict]
         print('의도:', intent_name)
 
+        # 취향 추천
+        mood_name = None
+        if intent_predict == 10:
+            # 사용자의 플레이리스트를 받아와야함..
+            moodslist = []
+            playlist = recv_json_data['Playlist']
+            for lyric in [track['lyrics'] for track in playlist.values()]:
+                moodslist.append(mood.predict_mood(lyric))
+            pd.DataFrame([[i, moodslist.count(i)] for i in mood.labels]).set_index(0)
+            
         # 개체명 파악
         ner_predicts = ner.predict(query)
         ner_tags = ner.predict_tags(query)

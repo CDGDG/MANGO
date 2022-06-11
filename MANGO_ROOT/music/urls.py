@@ -21,4 +21,5 @@ app_name = 'Music'
 urlpatterns = [
     path('top/', views.top, name='top'),
     path('search/', views.search, name='search'),
+    path('recommend/<query>/', views.recommend, name='recommend'),
 ]

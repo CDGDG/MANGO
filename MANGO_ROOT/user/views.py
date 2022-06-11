@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.hashers import make_password, check_password
 import requests
+import json
+from bs4 import BeautifulSoup
 from .forms import LoginForm, JoinForm
 from .models import Music_prefer, Playlist, User
 
@@ -37,6 +39,7 @@ def login(request):
                 # 로그인 처리 (세션 사용)
                 request.session['user'] = {'id': user.id, 'userid': user.userid}
                 request.session['playlist'] = ",".join([track.youtube for track in Playlist.objects.filter(user=user).order_by('-id')])
+                request.session['playlist_info'] = json.dumps({str(i):{'track': track.track, 'artist': track.artist, 'lyrics': track.lyrics} for i, track in enumerate(Playlist.objects.filter(user=user).order_by('-id'))}, ensure_ascii=False)
                 return redirect('/')   # 로그인 성공후 home 으로 redirect
             else:
                 # 비밀번호 불일치.  로그인 실패 처리
@@ -92,11 +95,27 @@ def addPlaylist(request):
     youtube = request.GET.get('youtube')
     track = request.GET.get('track')
     artist = request.GET.get('artist')
+    lyrics = getLyrics(track, artist)
 
-    play = Playlist(user=get_object_or_404(User, id=userid), youtube=youtube, track=track, artist=artist)
+    play = Playlist(user=get_object_or_404(User, id=userid), youtube=youtube, track=track, artist=artist, lyrics=lyrics)
     play.save()
     request.session['playlist'] = ",".join([track.youtube for track in Playlist.objects.filter(user=userid).order_by('-id')])
+    request.session['playlist_info'] = json.dumps({str(i):{"track": track.track, "artist": track.artist, "lyrics": track.lyrics} for i, track in enumerate(Playlist.objects.filter(user=userid).order_by('-id'))}, ensure_ascii=False)
     return JsonResponse({'data': request.session['playlist']})
+
+def getLyrics(track, artist):
+    track2 = track.replace('953964', '&amp;')
+    query = f'{track2} {artist}'
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+    }
+    q_url = 'https://www.melon.com/search/song/index.htm?q='+query
+    print(q_url)
+    trackid = BeautifulSoup(requests.get(q_url, headers=headers).text, 'html.parser').select_one('table tbody tr td div.wrap.pd_none.left input')['value']
+    url = 'https://www.melon.com/song/popup/lyricPrint.htm?songId='+trackid
+    temp_lyrics =  str(BeautifulSoup(requests.get(url, headers=headers).text, 'html.parser').select_one('.box_lyric_text')).replace('<div class="box_lyric_text">', '').replace('</div>', '').replace('\r', '').replace('\n', '').replace('\t', '').split('<br/>')
+    return "\n".join(temp_lyrics)
 
 def getPlaylist(request):
     if request.session['user']:

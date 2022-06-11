@@ -100,10 +100,12 @@
         $('#chattext').focus();
     
         // API 서버에 요청할 데이터
+        playlist_str = `{{request.session.playlist_info|safe}}`.replace(/\r/gi, '\\r').replace(/\n/gi, '\\n').replace(/\t/gi, '\\t').replace(/\f/gi, '\\f')
         const jsonData = {
-            query: chattext
+            query: chattext,
+            playlist: JSON.parse(playlist_str),
         }
-    
+        console.log(jsonData.playlist)
         $.ajax({
             url: 'http://127.0.0.10:5000/query/MANGO',
             type: "POST",
@@ -123,9 +125,16 @@
                     answerText + "</b></span></div>";
     
                 // === === === 챗봇 동작 === === ===
-
+                if(response.Intent == '음악추천'){
+                    $.ajax({
+                        url: "{% url 'Music:recommend' "+jsonData.query+" %}",
+                        success: function(response){
+                            console.log(response)
+                        }
+                    })
+                }
                 // 재생목록 재생
-                if(response.Intent == '재생목록 재생'){
+                else if(response.Intent == '재생목록 재생'){
                     $.ajax({
                         url: "{% url 'User:getPlaylist' %}",
                         success: function(playR){

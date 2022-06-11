@@ -1,8 +1,10 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 import base64
 import json
+from user.views import getLyrics
 
 access_token = 'BQDAP9FCoLE96LUprlBGFHlaIJp0jkZavuJB3_ws7Su7qtt3eIijRHmzzjMUkC-C2SidtBnfy6gguUpottg'
 
@@ -13,7 +15,6 @@ def top(request):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
     }
-
 
     url = "https://www.melon.com/chart/index.htm"
     melons = [
@@ -118,6 +119,9 @@ def search(request):
         context['name'] = d['name']
         context['artist'] = ", ".join([arts['name'] for arts in d['artists']])
         context['artists'] = d['artists']
+        context['lyrics'] = getLyrics(context['name'], artistget).split('\n')
 
     return render(request, f'{type}.html',{'data': context})
 
+def recommend(request, query):
+    return JsonResponse({'data': query})
