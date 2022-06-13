@@ -9,7 +9,7 @@ class NerModel:
     def __init__(self, model_name, preprocess):
 
         # BIO 태그 클래스 별 레이블
-        self.index_to_ner = {1: 'O', 2: 'B_DT', 3: 'B_FOOD', 4: 'I', 5: 'B_OG', 6: 'B_PS', 7: 'B_LC', 8: 'NNP', 9: 'B_TI', 0: 'PAD'}
+        self.index_to_ner = {1: 'O', 2: 'B_TRACK', 0: 'PAD'}
 
         # 의도 분류 모델 불러오기
         self.model = load_model(model_name)
@@ -21,14 +21,14 @@ class NerModel:
     # 개체명 클래스 예측
     def predict(self, query):
         # 형태소 분석
-        pos = self.p.pos(query)
+        pos = self.p.pos(query.replace(' ', ''))
 
         # 문장내 키워드 추출(불용어 제거)
         keywords = self.p.get_keywords(pos, without_tag=True)
         sequences = [self.p.get_wordidx_sequence(keywords)]
 
         # 패딩처리
-        max_len = 40
+        max_len = 10
         padded_seqs = preprocessing.sequence.pad_sequences(sequences, padding="post", value=0, maxlen=max_len)
 
         predict = self.model.predict(np.array([padded_seqs[0]]))
@@ -39,14 +39,14 @@ class NerModel:
 
     def predict_tags(self, query):
         # 형태소 분석
-        pos = self.p.pos(query)
+        pos = self.p.pos(query.replace(' ', ''))
 
         # 문장내 키워드 추출(불용어 제거)
         keywords = self.p.get_keywords(pos, without_tag=True)
         sequences = [self.p.get_wordidx_sequence(keywords)]
 
         # 패딩처리
-        max_len = 40
+        max_len = 10
         padded_seqs = preprocessing.sequence.pad_sequences(sequences, padding="post", value=0, maxlen=max_len)
 
         predict = self.model.predict(np.array([padded_seqs[0]]))

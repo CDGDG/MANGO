@@ -5,6 +5,7 @@ from django.contrib.auth.hashers import make_password, check_password
 import requests
 import json
 from bs4 import BeautifulSoup
+from sympy import re
 from .forms import LoginForm, JoinForm
 from .models import Music_prefer, Playlist, User
 
@@ -141,6 +142,23 @@ def showPlaylist(request):
         }
         for play in Playlist.objects.filter(user=userid).order_by('-id')
     ]
-
-    
     return JsonResponse({'playlist': context})
+
+def deletePlaylist(request, track):
+    if request.session['user']:
+        userid = request.session['user']['id']
+    cnt = False
+    try:
+        playlist = Playlist.objects.filter(user=userid).order_by('-id')
+        for tr in playlist:
+            if tr.track.replace(" ", "") == track.replace(" ", ""):
+                tr.delete()
+                cnt = True
+        
+        if cnt:
+            return JsonResponse({'data': 'success'})
+        else:
+            return JsonResponse({'data': 'fail'})
+
+    except Exception as e:
+        return JsonResponse({'data': 'fail'})

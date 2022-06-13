@@ -17,15 +17,17 @@ import os
 import pandas as pd
 
 # 전처리 객체 생성
-intent_p = Preprocess(word2index_dic='train_tools/dict/chatbot_dictionary.bin', userdic='utils/mango_dict_total.txt')
+intent_p = Preprocess(word2index_dic=os.path.abspath('train_tools/dict/chatbot_dictionary.bin'), userdic=os.path.abspath('utils/mango_dict_total.txt'))
 
-lyric_p = Preprocess(word2index_dic=os.path.join('./train_tools/dict', 'lyric_dict.bin'))
+lyric_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/lyric_dict.bin'))
+
+ner_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/ner_dictionary.bin'), userdic=os.path.abspath('utils/mango_dic_ner.txt'))
 
 # 의도 파악 모델
 intent = IntentModel(model_name='models/intent/intent_model.h5', preprocess=intent_p)
 
 # 개체명 인식 모델
-ner = NerModel(model_name='models/ner/ner_model.h5', preprocess=intent_p)
+ner = NerModel(model_name='models/ner/ner_model_shuffle.h5', preprocess=ner_p)
 
 # 가사 분석 모델
 mood = LyricModel(model_name='models/mood/lyric_model.h5', preprocess=lyric_p)
@@ -81,21 +83,38 @@ def to_client(conn, addr, params):
         # 개체명 파악
         ner_predicts = ner.predict(query)
         ner_tags = ner.predict_tags(query)
+        print('개체명: ', ner_predicts, ner_tags)
+        ner_track = None
+        for ne in ner_predicts:
+            if ne[1] == 'B_TRACK':
+                ner_track = ne[0]
+        print('트랙:', ner_track)
+
+        # 날씨 개체명 인식
+        weather_predicts = [('날', 'O'), ('추천', 'O')]
+        weather_tags = None
+        print('날씨: ', weather_predicts, weather_tags)
 
         # 답변 검색, 분석된 의도와 개체명을 이용해 학습 DB 에서 답변을 검색
+        fail = False
         try:
             f = FindAnswer(db)
-            answer_text, answer_image = f.search(intent_predict, ner_tags)
-            answer = f.tag_to_word(ner_predicts, answer_text)
-
-        except:
-            answer = "죄송해요 무슨 말인지 모르겠어요. 조금 더 공부 할게요."
-            answer_image = None
+            answer_text = f.search(intent_predict, ner_tags, weather_tags)
+            answer = f.tag_to_word(intent_predict, ner_predicts, answer_text, weather_predicts)
+            if 'B_TRACK' in answer or 'B_WEATHER' in answer or 'B_TIME' in answer:
+                raise Exception
+        except Exception as e:
+            print(e)
+            answer = "무슨 말인지 모르겠어요..<br>망고 봇에게 무엇을 요청하셨나요?"
+            fail = True
+        print('대답:', answer)
 
         # 검색된 답변데이터와 함께 앞서 정의한 응답하는 JSON 으로 생성
         send_json_data_str['Answer'] = answer
         send_json_data_str['Intent'] = intent_name
         send_json_data_str['NER'] = str(ner_predicts)
+        send_json_data_str['TRACK'] = ner_track
+        send_json_data_str['Fail'] = fail
         # send_json_data_str = {
         #     # 'Emotion': emotion,
         #     'Answer': answer,
@@ -118,6 +137,7 @@ def to_client(conn, addr, params):
         conn.close()
             
     # 함수가 종료되면 쓰레드도 끝남
+
 
 def get_recommend_track(query):
     headers = {

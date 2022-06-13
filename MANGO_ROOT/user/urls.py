@@ -30,4 +30,5 @@ urlpatterns = [
     path('addPlaylist/', views.addPlaylist, name='addPlaylist'),
     path('getPlaylist/', views.getPlaylist, name='getPlaylist'),
     path('showPlaylist/', views.showPlaylist, name='showPlaylist'),
+    path('deletePlaylist/<track>/', views.deletePlaylist, name='deletePlaylist'),
 ]

@@ -16,14 +16,12 @@
                 {% endif %}
             </header>
             <img src="{{data.image}}" alt="앨범 커버">
-            <h2>{{data.name}}</h2>
+            <h2 class='name'>{{data.name}}</h2>
             <a href="javascript:youtube(true);" class="button primary fit small" style='margin-bottom: 1%;'><i class='fa-solid fa-play' style='margin-right: 1%;'></i>PLAY</a>
             <a href="javascript:youtube(false);" class="button fit small" style='margin-bottom: 3%;'><i class='fa-solid fa-plus' style='margin-right: 1%;'></i>ADD PLAYLIST</a>
             <div class="box">
                 <h3>아티스트</h3>
-                {% for artist in data.artists %}
-                <a href='{% url "Music:search" %}?type=artist&item={{artist.name}}' class='artists'><h4>{{artist.name}}</h4></a>
-                {% endfor %}
+                <a href='{% url "Music:search" %}?type=artist&item={{data.artist}}' class='artists'><h4>{{data.artist}}</h4></a>
                 <h3>앨범</h3>
                 <a href='{% url "Music:search" %}?type=album&item={{data.album}}&artist={{data.artists.0.name}}'><h4>{{data.album}}</h4></a>
                 <h3>발매</h3>
@@ -75,18 +73,16 @@
 <script>
     api_key = 'AIzaSyD-MlnJmv8El7gQLdQNALcPxlmOgXkuBMY'
     function youtube(play){
-        artists = []
-        for(w of $('.artists')){
-            artists.push(w.text)
-        }
+        name = $('h2.name').text()
+        artist = $('.artist').text()
         $.ajax({
-            url: 'https://www.googleapis.com/youtube/v3/search?part=snippet&q={{data.artists.0.name}} {{data.name}}&type=video&key='+api_key,
+            url: `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${artist} ${name}&type=video&key=`+api_key,
             datatype:'json',
             success:function(response){
                 var videoId = response.items[0].id.videoId
-                dataname = "{{data.name}}".replace('&amp;', '953964')
+                dataname = name.replace('&', '953964')
                 $.ajax({
-                    url: ("{% url 'User:addPlaylist' %}?youtube=12345&track="+dataname+"&artist="+ artists.join(',') +"").replace(/12345/, videoId.toString()),
+                    url: ("{% url 'User:addPlaylist' %}?youtube=12345&track="+dataname+"&artist="+artist).replace(/12345/, videoId.toString()),
                     datatype:'json',
                     success:function(response){
                         if(play){
@@ -96,7 +92,7 @@
                                 $(window.parent.document.querySelector('#playerdiv')).slideToggle()
                              }
                         }else{
-                            alert('{{data.name}} 을 플레이리스트에 추가했습니다!')
+                            alert(dataname+' 을 플레이리스트에 추가했습니다!')
                         }
                     }
                 })

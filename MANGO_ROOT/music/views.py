@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render
+from matplotlib.pyplot import get
 import requests
 from bs4 import BeautifulSoup
 import base64
@@ -54,27 +55,13 @@ def search(request):
     try:
         if type=='album':
             artistget = request.GET.get('artist')
-            req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
-            if req2.status_code != 200:
-                client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
-                client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
-                endpoint = 'https://accounts.spotify.com/api/token'
-
-                encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
-
-                headers = {"Authorization": 'Basic {}'.format(encoded)}
-                payload = {'grant_type': 'client_credentials'}
-
-                response = requests.post(endpoint, data=payload, headers=headers)
-                access_token = json.loads(response.text)['access_token']
-                req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
-            data2 = req2.json()
-            d =  [album for album in data['albums']['items'] for artist in album['artists'] if artist['id'] in [d['id'] for d in data2['artists']['items']]][0]
-            context['image'] = d['images'][1]['url']
-            context['image_small'] = d['images'][2]['url']
-            context['name'] = d['name']
-            context['artist'] = ','.join([artist['name'] for artist in d['artists']])
-            context['tracks'] = requests.get('https://api.spotify.com/v1/albums/' + data['albums']['items'][0]['id'] + '/tracks?access_token='+access_token).json()['items']
+            melon_data = getMelonAlbum(item, artistget)
+            print(melon_data)
+            context['image'] = melon_data['image']
+            context['image_small'] = melon_data['image_small']
+            context['name'] = melon_data['name']
+            context['artist'] = melon_data['artist']
+            context['tracks'] = melon_data['tracks']
         elif type=='artist':
             d = data['artists']['items'][0]
             req2 = requests.get(f'https://api.spotify.com/v1/artists/{d["id"]}/top-tracks?market=KR&access_token={access_token}')
@@ -98,29 +85,14 @@ def search(request):
             context['tracks'] = data2['tracks']
         elif type=='track':
             artistget = request.GET.get('artist')
-            req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
-            if req2.status_code != 200:
-                client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
-                client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
-                endpoint = 'https://accounts.spotify.com/api/token'
-
-                encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
-
-                headers = {"Authorization": 'Basic {}'.format(encoded)}
-                payload = {'grant_type': 'client_credentials'}
-
-                response = requests.post(endpoint, data=payload, headers=headers)
-                access_token = json.loads(response.text)['access_token']
-                req2 = requests.get(f'https://api.spotify.com/v1/search?query={artistget}&type=artist&access_token='+access_token)
-            data2 = req2.json()
-            d = [track for track in data['tracks']['items'] for ar in track['artists'] if ar['id'] in [d['id'] for d in data2['artists']['items']]][0]
-            context['album'] = d['album']['name']
-            context['release'] = d['album']['release_date']
-            context['image'] = d['album']['images'][1]['url']
-            context['name'] = d['name']
-            context['artist'] = ", ".join([arts['name'] for arts in d['artists']])
-            context['artists'] = d['artists']
-            context['lyrics'] = getLyrics(context['name'], artistget).split('\n')
+            melon_data = getMelonInfo(item, artistget)
+            context['album'] = melon_data['album']
+            context['release'] = melon_data['release']
+            context['image'] = melon_data['image']
+            context['name'] = melon_data['name']
+            context['artist'] = melon_data['artist']
+            context['artists'] = melon_data['artist']
+            context['lyrics'] = melon_data['lyrics']
     except IndexError as ie:
         context['error'] = 'IndexError'
 
@@ -128,3 +100,77 @@ def search(request):
 
 def recommend(request, query):
     return JsonResponse({'data': query})
+
+def getMelonInfo(track, artist):
+    track2 = track.replace('953964', '&amp;')
+    query = f'{track2} {artist}'
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+    }
+    q_url = 'https://www.melon.com/search/song/index.htm?q='+query
+    try:
+        trackid = BeautifulSoup(requests.get(q_url, headers=headers).text, 'html.parser').select_one('table tbody tr td div.wrap.pd_none.left input')['value']
+        url = 'https://www.melon.com/song/detail.htm?songId='+trackid
+        soup = BeautifulSoup(requests.get(url, headers=headers).text, 'html.parser')
+        data = {
+            'album': soup.select_one('dl.list > dd').text.strip(),
+            'release': soup.select('dl.list > dd')[1].text.strip(),
+            'image': soup.select_one('div.wrap_info > div.thumb > a > img')['src'].strip(),
+            'name': soup.select_one('div.info > div.song_name').text.replace('곡명', '').strip(),
+            'artist': soup.select_one('div.info > div.artist > a.artist_name > span').text.strip(),
+            'lyrics': BeautifulSoup(str(soup.select_one('#d_video_summary')).replace('<br/>', '\n'), 'html.parser').text.split('\n'),
+            }
+    except Exception as e:
+        return ('곡 정보 불러오기 실패', e)
+    return data
+
+def getMelonAlbum(album, artist):
+    album2 = album.replace('953964', '&amp;')
+    query = f'{album2} {artist}'
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+    }
+    q_url = 'https://www.melon.com/search/album/index.htm?q='+query
+    try:
+        soup = BeautifulSoup(requests.get(q_url, headers=headers).text, 'html.parser').select_one('#frm ul.album11_ul li.album11_li div.wrap_album04')
+        albumid = soup.select_one('dd.wrap_btn > a')['data-album-no']
+        albumsoup = BeautifulSoup(requests.get('https://www.melon.com/album/detail.htm?albumId='+albumid, headers=headers).text, 'html.parser')
+        data = {}
+        data['image'] = soup.select_one('a.thumb > img')['src'].strip()
+        data['image_small'] = soup.select_one('a.thumb > img')['src'].replace('/260/', '/120/').strip()
+        data['name'] = soup.select_one('div.atist_info > dl > dt > a.ellipsis').text.strip()
+        data['artist'] = soup.select_one('div.atist_info dd.atistname > div.ellipsis > a').text.strip()
+        data['tracks'] = [{
+            'name': tr.select_one('div.wrap_song_info div.ellipsis span a').text.strip(),
+            'artist': tr.select_one('div.wrap_song_info div.ellipsis.rank02 a').text.strip(),
+            } for tr in albumsoup.select('#frm table tbody tr:not(.cd)')]
+    except Exception as e:
+        return ('앨범 정보 불러오기 실패', e, data)
+    return data
+
+def searchlist(request, track):
+    context = {}
+    headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+    }
+    print(track+'로 음악 검색')
+    url = "https://www.melon.com/search/total/index.htm?q="+track
+    soup = BeautifulSoup(requests.get(url, headers=headers).text, 'html.parser')
+    # 아티스트 있는지 확인
+    artistsoup = soup.select_one('.section_atist div.wrap_cntt.clfix.d_artist_list')
+    if artistsoup and artistsoup.select_one('a.wrap_thumb > img'):
+        context['artist'] = {
+            'image': soup.select_one('a.wrap_thumb > img').get('src'),
+            'name': soup.select_one('.atist_dtl_info .fc_serch').text.strip(),
+            }
+    context['tracks'] = [
+                            {
+                                'track': BeautifulSoup(str(searchs.select_one('td div.ellipsis a.fc_gray')).replace('<b>','').replace('</b>',""), 'html.parser').text,
+                                'artist': searchs.select_one('#artistName span').text,
+                            }
+                            for searchs in soup.select('#frm_searchSong table tbody tr')
+                        ][:3]
+
+    return JsonResponse({'data': context})
