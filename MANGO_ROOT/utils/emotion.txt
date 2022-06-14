@@ -1,0 +1,6 @@
+공포	NNP
+놀람	NNP
+분노	NNP
+슬픔	NNP
+행복	NNP
+혐오	NNP

@@ -13,6 +13,7 @@ from models.intent.IntentModel import IntentModel
 from models.ner.NerModel import NerModel
 from models.mood.LyricModel import LyricModel
 from models.weather.WeatherModel import WeatherModel
+from models.emotion.EmotionModel import EmotionModel
 from utils.FindAnswer import FindAnswer
 import os
 import pandas as pd
@@ -26,6 +27,8 @@ ner_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/ner_dictio
 
 weather_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/chatbot_dict.bin'), userdic=os.path.abspath('utils/weather2.txt'))
 
+emotion_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/chatbot_dict.bin'), userdic=os.path.abspath('utils/emotion.txt'))
+
 # 의도 파악 모델
 intent = IntentModel(model_name='models/intent/intent_model.h5', preprocess=intent_p)
 
@@ -37,6 +40,9 @@ mood = LyricModel(model_name='models/mood/lyric_model.h5', preprocess=lyric_p)
 
 # 날씨 분석 모델
 weather = WeatherModel(model_name='models/weather/weather_model.h5', preprocess=weather_p)
+
+# 감정 의도 분석 모델
+emotion = EmotionModel(model_name='models/emotion/emotion_model(7).h5', preprocess=emotion_p)
 
 # 클라이언트 요청을 수행하는 함수 (쓰레드에 담겨 실행될거임)
 def to_client(conn, addr, params):
