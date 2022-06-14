@@ -142,8 +142,8 @@
         $('#chattext').focus();
 
         // 로딩 메세지 띄우기
-        loading = $("<div style='margin:2% 0%;text-align:left;' id='loading'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>잠시만 기다려주세요\
-            <br>망고봇이 답변을 생각하고 있어요!<img src='/static/images/Spinner.gif'/></b></span></div>")
+        loading = $("<div style='margin:2% 0%;text-align:left;' id='loading'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>잠시만 기다려주세요</b>\
+            <br><b>망고봇이 답변을 생각하고 있어요!</b></span><img style='width:50px;' src='/static/images/Spinner.gif'/></div>")
         $chatbox.append(loading).animate({scrollTop: $chatbox.prop('scrollHeight')})
     
         // API 서버에 요청할 데이터
@@ -178,9 +178,9 @@
                         intent_list = ["음악추천", "검색", "음악재생", "음악정지", '재생목록 조회', '재생목록 재생', '재생목록 추가', '재생목록 삭제', '날씨', '기능소개', '음악취향']
                         bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
                             answerText.replace("user", "{{request.session.user.userid}}")+ "<br>질문 의도를 선택해주세요" + "</b></span></div>";
-                        button_str = "<div>"
+                        button_str = "<div style='display:flex;flex-wrap:wrap;justify-content: space-around;width:80%;background-color:#ffcd48;border-radius:10px;color:#424242;padding:1% 2%;'>"
                         for(inte of intent_list){
-                            button_str += `<a class='button small primary'>${inte}</a>`
+                            button_str += `<a class='button small primary' style='margin: 3px;'>${inte}</a>`
                         }
                         button_str += "</div>"
                         //로딩 삭제
