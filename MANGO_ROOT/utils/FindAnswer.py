@@ -57,11 +57,13 @@ class FindAnswer:
     # 답변 내용속 '{B_FOOD}' 를 '자장면' 으로 변환해 주는 함수입니다.
     # 변환해야 하는 태그가 더 존재한다면 변환 규칙을 추가하면 됩니다.
     
-    def tag_to_word(self, intent, ner_predicts, answer, weather_predicts):
+    def tag_to_word(self, intent, ner_predicts, answer, weather_predicts, emotion_name):
         if intent == 8:
             for word, tag in weather_predicts:
                 if tag in ['B_WEATHER', 'B_TIME']:
                     answer = answer.replace(tag, word)
+        elif intent == 0:
+            answer = answer.replace('emotion',emotion_name)
         else:
             for word, tag in ner_predicts:
                 # 변환해야하는 태그가 있는 경우 추가

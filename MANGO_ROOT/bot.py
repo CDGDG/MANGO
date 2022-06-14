@@ -75,6 +75,17 @@ def to_client(conn, addr, params):
         intent_name = intent.labels[intent_predict]
         print('의도:', intent_name)
 
+        emotion_predict = emotion.predict_class(query)
+        emotion_name = emotion.labels[emotion_predict]
+
+        if intent_predict == 0:
+
+            print('감정의도:', emotion_name)
+            send_json_data_str['recommend'] = json.dumps(get_recommend_track(emotion_name), ensure_ascii=False)
+
+
+
+
         # 취향 추천
         mood_name = None
         if intent_predict == 10:
@@ -88,7 +99,7 @@ def to_client(conn, addr, params):
             pd.DataFrame([[i, moodslist.count(i)] for i in mood.labels]).set_index(0)[1]
             # 음악 추천
             most_mood = max(moodslist, key=moodslist.count)
-            send_json_data_str['recommend'] =  json.dumps(get_recommend_track(most_mood), ensure_ascii=False)
+            send_json_data_str['recommend'] = json.dumps(get_recommend_track(most_mood), ensure_ascii=False)
             send_json_data_str['most_mood'] = most_mood
 
             
@@ -125,7 +136,7 @@ def to_client(conn, addr, params):
         try:
             f = FindAnswer(db)
             answer_text = f.search(intent_predict, ner_tags, weather_tags)
-            answer = f.tag_to_word(intent_predict, ner_predicts, answer_text, weather_predicts)
+            answer = f.tag_to_word(intent_predict, ner_predicts, answer_text, weather_predicts, emotion_name)
             if 'B_TRACK' in answer or 'B_WEATHER' in answer or 'B_TIME' in answer:
                 raise Exception
         except Exception as e:
@@ -141,6 +152,7 @@ def to_client(conn, addr, params):
         send_json_data_str['TRACK'] = ner_track
         send_json_data_str['Weather'] = ner_weather
         send_json_data_str['Fail'] = fail
+        send_json_data_str['emotion'] = emotion_name
         # send_json_data_str = {
         #     # 'Emotion': emotion,
         #     'Answer': answer,
