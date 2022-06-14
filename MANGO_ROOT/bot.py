@@ -97,18 +97,22 @@ def to_client(conn, addr, params):
         print('트랙: ', ner_track)
 
         # 날씨 개체명 인식
-        weather_predicts = weather.predict(query)
-        weather_tags = weather.predict_tags(query)
-        print('날씨개체명: ', weather_predicts, weather_tags)
+        weather_predicts = None
+        weather_tags = None
         ner_weather = None
-        for we in weather_predicts:
-            if we[1] == 'B_WEATHER':
-                ner_weather = we[0]
-        # 날씨 명사로
-        weather_dic = {'맑': '맑음', '흐리': '흐림',}
-        ner_weather = weather_dic.get(ner_weather, ner_weather)
-        send_json_data_str['recommend'] = json.dumps(get_recommend_track(ner_weather), ensure_ascii=False)
-        print('날씨: ',ner_weather)
+        if intent_predict == 8:
+            weather_predicts = weather.predict(query)
+            weather_tags = weather.predict_tags(query)
+            print('날씨개체명: ', weather_predicts, weather_tags)
+            ner_weather = None
+            for we in weather_predicts:
+                if we[1] == 'B_WEATHER':
+                    ner_weather = we[0]
+            # 날씨로 음악 추천
+            weather_dic = {'맑': '맑음', '흐리': '흐림',}
+            ner_weather = weather_dic.get(ner_weather, ner_weather)
+            send_json_data_str['recommend'] = json.dumps(get_recommend_track(ner_weather), ensure_ascii=False)
+            print('날씨: ',ner_weather)
 
         # 답변 검색, 분석된 의도와 개체명을 이용해 학습 DB 에서 답변을 검색
         fail = False

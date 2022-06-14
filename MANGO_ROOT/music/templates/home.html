@@ -65,6 +65,7 @@
     $player = $('#player');
     $playerdiv = $('#playerdiv')
     $chatbox = $('#chatbox');
+    audio = new Audio('/static/images/알림음.mp3');
     api_key = 'AIzaSyD-MlnJmv8El7gQLdQNALcPxlmOgXkuBMY'
 
     // 처음 켜면 말하기
@@ -141,7 +142,8 @@
         $('#chattext').focus();
 
         // 로딩 메세지 띄우기
-        loading = $("<div style='margin:2% 0%;text-align:left;' id='loading'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>잠시만 기다려주세요..</b></span></div>")
+        loading = $("<div style='margin:2% 0%;text-align:left;' id='loading'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>잠시만 기다려주세요\
+            <br>망고봇이 답변을 생각하고 있어요!<img src='/static/images/Spinner.gif'/></b></span></div>")
         $chatbox.append(loading).animate({scrollTop: $chatbox.prop('scrollHeight')})
     
         // API 서버에 요청할 데이터
@@ -163,6 +165,8 @@
                 answerText = (response.Answer.length>15?response.Answer.split('').reduce((acc,cur,i)=>{
                     return acc+cur+(i%20==0?"<br>":"")
                 }) :response.Answer)
+
+                answerText = answerText.replace("user", "{{request.session.user.userid}}")
     
                 // 답변 작성
                 let bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
@@ -171,7 +175,7 @@
                 // === === === 챗봇 동작 === === ===
                 try{
                     if(response.Fail){
-                        intent_list = {0: "음악추천", 1: "검색", 2: "음악재생", 3: "음악정지",4:'재생목록 조회',5:'재생목록 재생', 6:'재생목록 추가', 7:'재생목록 삭제',8:'날씨',9:'기능소개',10:'음악취향'}
+                        intent_list = ["음악추천", "검색", "음악재생", "음악정지", '재생목록 조회', '재생목록 재생', '재생목록 추가', '재생목록 삭제', '날씨', '기능소개', '음악취향']
                         bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
                             answerText.replace("user", "{{request.session.user.userid}}")+ "<br>질문 의도를 선택해주세요" + "</b></span></div>";
                         button_str = "<div>"
@@ -434,6 +438,7 @@
                         $chatbox.append(bottext);
                         $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
                     }
+                    audio.play();
                 }catch (err){
                     console.log('error 발생: '+err)
                     let intent_list = ["음악추천", "검색", "음악재생", "음악정지", '재생목록 조회','재생목록 재생','재생목록 추가', '재생목록 삭제','날씨','기능소개', '음악취향']
