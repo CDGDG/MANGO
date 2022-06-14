@@ -41,7 +41,7 @@ class FindAnswer:
             if (len(weather_tags) > 0):
                 where += 'and ('
                 for ne in weather_tags:
-                    where += " weather like '%{}%' or ".format(ne)
+                    where += ' weather like "%{}%" or '.format(ne)
                 where = where[:-3] + ')'
             sql = sql + where
             

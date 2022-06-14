@@ -1,0 +1,12 @@
+맑음	NNP
+구름조금	NNP
+구름많음	NNP
+흐림	NNP
+비	NNP
+눈	NNP
+비또는눈	NNP
+안개	NNP
+황사	NNP
+소나기	NNP
+빗방울	NNP
+천둥	NNP

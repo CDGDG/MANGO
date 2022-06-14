@@ -326,6 +326,33 @@
                         loading.remove()
                         $chatbox.append(bottext)
                         $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+                    // 날씨추천
+                    }else if(response.Intent == '날씨'){
+                        recommend_music = JSON.parse(response.recommend)
+                        recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.Weather}</p>
+                            <table style="border-radius:10px;margin-bottom:3%;color:white;padding:3%;background:#424242;text-align:center;display:table;table-layout:fixed;">
+                                <tr>
+                                    <td style='vertical-align:middle' rowspan=2 colspan=3><img src=${recommend_music.image}/></td>
+                                    <td style='vertical-align:middle' colspan=5>${recommend_music.title}</td>
+                                </tr>
+                                <tr>
+                                    <td style='vertical-align:middle' colspan=5>${recommend_music.artists}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", true)'><i class="fa-solid fa-play"></i></td>
+                                    <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", false)'><i class="fa-solid fa-plus"></i></td>
+                                    <td colspan=2 style='background-image: url("/static/images/MANGO.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
+                                    onclick='info_("${recommend_music.artists}","${recommend_music.title}")'></td>
+                                    <td colspan=2 style='background-image: url("/static/images/MELON.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
+                                    onclick='window.open("${recommend_music.url}")'></td>
+                                </tr>
+                            </table>`
+                        bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+                            recommend_text+"</span></div>";
+                        //로딩 삭제
+                        loading.remove()
+                        $chatbox.append(bottext)
+                        $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
                     // 음악 재생
                     }else if(response.Intent == '음악재생'){
                         track = response.TRACK
@@ -414,7 +441,7 @@
                         answerText.replace("user", "{{request.session.user.userid}}")+ "<br>질문 의도를 선택해주세요" + "</b></span></div>";
                     button_str = "<div style='display:flex;flex-wrap:wrap;justify-content: space-around;width:80%;background-color:#ffcd48;border-radius:10px;color:#424242;padding:1% 2%;'>"
                     for(inte of intent_list){
-                        button_str += `<a class='button small primary' style='margin: 3px;'>${inte}</a>`
+                        button_str += `<a class='button small primary' style='margin: 3px;' href="#">${inte}</a>`
                     }
                     button_str += "</div>"
                     //로딩 삭제

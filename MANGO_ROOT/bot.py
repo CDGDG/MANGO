@@ -12,6 +12,7 @@ from utils.Preprocess import Preprocess
 from models.intent.IntentModel import IntentModel
 from models.ner.NerModel import NerModel
 from models.mood.LyricModel import LyricModel
+from models.weather.WeatherModel import WeatherModel
 from utils.FindAnswer import FindAnswer
 import os
 import pandas as pd
@@ -23,6 +24,8 @@ lyric_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/lyric_di
 
 ner_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/ner_dictionary.bin'), userdic=os.path.abspath('utils/mango_dic_ner.txt'))
 
+weather_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/chatbot_dict.bin'), userdic=os.path.abspath('utils/weather2.txt'))
+
 # 의도 파악 모델
 intent = IntentModel(model_name='models/intent/intent_model.h5', preprocess=intent_p)
 
@@ -31,6 +34,9 @@ ner = NerModel(model_name='models/ner/ner_model_shuffle.h5', preprocess=ner_p)
 
 # 가사 분석 모델
 mood = LyricModel(model_name='models/mood/lyric_model.h5', preprocess=lyric_p)
+
+# 날씨 분석 모델
+weather = WeatherModel(model_name='models/weather/weather_model.h5', preprocess=weather_p)
 
 # 클라이언트 요청을 수행하는 함수 (쓰레드에 담겨 실행될거임)
 def to_client(conn, addr, params):
@@ -88,12 +94,21 @@ def to_client(conn, addr, params):
         for ne in ner_predicts:
             if ne[1] == 'B_TRACK':
                 ner_track = ne[0]
-        print('트랙:', ner_track)
+        print('트랙: ', ner_track)
 
         # 날씨 개체명 인식
-        weather_predicts = [('날', 'O'), ('추천', 'O')]
-        weather_tags = None
-        print('날씨: ', weather_predicts, weather_tags)
+        weather_predicts = weather.predict(query)
+        weather_tags = weather.predict_tags(query)
+        print('날씨개체명: ', weather_predicts, weather_tags)
+        ner_weather = None
+        for we in weather_predicts:
+            if we[1] == 'B_WEATHER':
+                ner_weather = we[0]
+        # 날씨 명사로
+        weather_dic = {'맑': '맑음', '흐리': '흐림',}
+        ner_weather = weather_dic.get(ner_weather, ner_weather)
+        send_json_data_str['recommend'] = json.dumps(get_recommend_track(ner_weather), ensure_ascii=False)
+        print('날씨: ',ner_weather)
 
         # 답변 검색, 분석된 의도와 개체명을 이용해 학습 DB 에서 답변을 검색
         fail = False
@@ -114,6 +129,7 @@ def to_client(conn, addr, params):
         send_json_data_str['Intent'] = intent_name
         send_json_data_str['NER'] = str(ner_predicts)
         send_json_data_str['TRACK'] = ner_track
+        send_json_data_str['Weather'] = ner_weather
         send_json_data_str['Fail'] = fail
         # send_json_data_str = {
         #     # 'Emotion': emotion,
