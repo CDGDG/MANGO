@@ -83,10 +83,8 @@ def to_client(conn, addr, params):
 
         if intent_predict == 0:
             print('감정의도:', emotion_name)
-            emotion_name = {'혐오': '차분', '중립': '편안'}.get(emotion_name, emotion_name)
+            emotion_name = {'혐오': '차분', '중립': '편안', '놀람':'잔잔', '공포': '편안'}.get(emotion_name, emotion_name)
             send_json_data_str['recommend'] = json.dumps(get_recommend_track(emotion_name), ensure_ascii=False)
-
-
 
 
         # 취향 추천
