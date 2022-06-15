@@ -187,7 +187,7 @@
                     intent_list = ["음악추천", "검색", "음악재생", "음악정지",'재생목록 조회','재생목록 재생', '재생목록 추가','재생목록 삭제','날씨','기능소개','음악취향']
                     bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
                         answerText.replace("user", "{{request.session.user.userid}}")+ "<br>질문 의도를 선택해주세요" + "</b></span></div>";
-                    button_str = "<div>"
+                    button_str = "<div id='buttons'>"
                     let i = 0
                     for(inte of intent_list){
                         button_str += `<button class='button small primary' style='margin: 3px;' onclick='retrain(${i}, "${chattext}")'>${inte}</button>`
@@ -481,7 +481,11 @@
             contentType:'application/json; charset=utf-8',
             success: function(response){
                 if(response.data == "성공"){
-                    alert("성공!!!!!!!!!!!!!!!!!!!!")
+                    $('#buttons').remove()
+                    bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+                        '감사합니다!<br>더 공부해올게요!' + "</b></span></div>"
+                    $chatbox.append(bottext);
+                    $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
                 }else{
                     alert("실패 ....")
                 }
