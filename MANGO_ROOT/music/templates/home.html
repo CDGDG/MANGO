@@ -162,7 +162,7 @@
             playlist: JSON.parse(playlist_str),
         }
         $.ajax({
-            url: '127.0.0.10:5000/query/MANGO',
+            url: 'http://127.0.0.10:5000/query/MANGO',
             type: "POST",
             data: JSON.stringify(jsonData),
             dataType: 'JSON', // 응답받을 데이터 타입
