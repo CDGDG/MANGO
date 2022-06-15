@@ -1,9 +1,11 @@
 import random
+from tabnanny import verbose
 import threading
 import json
 
 from bs4 import BeautifulSoup
 import requests
+
 
 from config.DatabaseConfig import *
 from utils.Database import Database
@@ -17,6 +19,7 @@ from models.emotion.EmotionModel import EmotionModel
 from utils.FindAnswer import FindAnswer
 import os
 import pandas as pd
+
 
 # 전처리 객체 생성
 intent_p = Preprocess(word2index_dic=os.path.abspath('train_tools/dict/chatbot_dictionary.bin'), userdic=os.path.abspath('utils/mango_dict_total.txt'))
@@ -67,7 +70,7 @@ def to_client(conn, addr, params):
         recv_json_data = json.loads(read.decode())
         print('데이터 수신 :', recv_json_data['Query'])
         query = recv_json_data['Query']
-
+        
         send_json_data_str = {}
 
         # 의도 파악
@@ -143,6 +146,9 @@ def to_client(conn, addr, params):
             print(e)
             answer = "무슨 말인지 모르겠어요..<br>망고 봇에게 무엇을 요청하셨나요?"
             fail = True
+
+
+
         print('대답:', answer)
 
         # 검색된 답변데이터와 함께 앞서 정의한 응답하는 JSON 으로 생성
@@ -176,7 +182,6 @@ def to_client(conn, addr, params):
             
     # 함수가 종료되면 쓰레드도 끝남
 
-
 def get_recommend_track(query):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
@@ -197,6 +202,7 @@ def get_recommend_track(query):
             'url': "https://www.melon.com/song/detail.htm?songId=" + song.select_one('div.wrap.t_right input')['value']
             }
     return track
+
 
 if __name__ == '__main__':
     # 질문/답변 학습 디비 연결 객체 생성

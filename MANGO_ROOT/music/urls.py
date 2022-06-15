@@ -23,4 +23,5 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('searchlist/<track>/', views.searchlist, name='searchlist'),
     path('recommend/<query>/', views.recommend, name='recommend'),
+    path('update_data/',views.update_data,name="update"),
 ]

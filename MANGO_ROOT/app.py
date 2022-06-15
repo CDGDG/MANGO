@@ -64,6 +64,5 @@ def query(bot_type):
         # 오류 발생시 500 에러
         abort(500)
 
- 
 if __name__=="__main__":
     app.run(debug=True, host='127.0.0.10', port=5000)

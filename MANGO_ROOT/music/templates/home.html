@@ -18,6 +18,7 @@
         <iframe src="{% url 'Music:top' %}" style='width:100%;height:100%;border:2px solid white;border-radius:10px;background-color:white;' id='iframe'></iframe>
     </div>
     <!-- 챗봇 -->
+    {% csrf_token %}
     <div class='col-6' style='padding:2% 4%;height: 90vh;background-color:#ff8b77;'>
         <div style='height:100%;border:2px solid white;border-radius:10px;background-color:white;'>
             <div class="chatheader" style='height: 10%;display:flex;margin: 0 3%;'>
@@ -43,6 +44,8 @@
 <div style='height: 30vh;position:fixed;bottom:10px;width:30%;z-index: 1000;left:10px;display:none;' id='playerdiv'>
     <iframe src="https://www.youtube.com/embed?playlist={{request.session.playlist}}&autoplay=1&loop=1" frameborder="1" style='width:100%; height:100%; border:5px solid white;border-radius:30px;' id='player'></iframe>
 </div>
+{% comment %} <input type='hidden' value='{{csrf_token}}' id='csrf_token'/> {% endcomment %}
+
 {% endblock  %}
 {% block script %}
 <style>
@@ -173,6 +176,7 @@
                     answerText.replace("user", "{{request.session.user.userid}}") + "</b></span></div>";
     
                 // === === === 챗봇 동작 === === ===
+<<<<<<< Updated upstream
                 try{
                     if(response.Fail){
                         intent_list = ["음악추천", "검색", "음악재생", "음악정지", '재생목록 조회', '재생목록 재생', '재생목록 추가', '재생목록 삭제', '날씨', '기능소개', '음악취향']
@@ -196,135 +200,131 @@
                                 console.log(response)
                             }
                         })
+=======
+                if(response.Fail){
+                    intent_list = ["음악추천", "검색", "음악재생", "음악정지",'재생목록 조회','재생목록 재생', '재생목록 추가','재생목록 삭제','날씨','기능소개','음악취향']
+                    bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+                        answerText.replace("user", "{{request.session.user.userid}}")+ "<br>질문 의도를 선택해주세요" + "</b></span></div>";
+                    button_str = "<div>"
+                    let i = 0
+                    for(inte of intent_list){
+                        button_str += `<button class='button small primary' style='margin: 3px;' onclick='retrain(${i}, "${chattext}")'>${inte}</button>`
+                        i += 1;
+>>>>>>> Stashed changes
                     }
-                    // 재생목록 재생
-                    else if(response.Intent == '재생목록 재생'){
-                        $.ajax({
-                            url: "{% url 'User:getPlaylist' %}",
-                            success: function(playR){
-                                $player.attr('src', 'https://www.youtube.com/embed?autoplay=1&playlist='+playR.playlist+'&autoplay=1&loop=1')
-
-                                //로딩 삭제
-                                loading.remove()
-                                // 답변 넣기
-                                $chatbox.append(bottext);
-                                // 스크롤 조정하기
-                                $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
-
-                                // 띄우기
-                                if($playerdiv.css('display')=='none'){
-                                $playerdiv.slideToggle()
-                                }
-                            }
-                        })
-                    // 재생목록 조회
-                    }else if(response.Intent == '재생목록 조회'){
-                        $.ajax({
-                            url: "{% url 'User:showPlaylist' %}",
-                            success: function(playR){
-                                playlistT = "<ol>"
-                                for(play of playR.playlist){
-                                    playlistT += "<li style='border-radius:10px;background:#424242;margin-bottom:3%;color:white;padding:3%;'>"+ play.track.replace('953964', '&') + "<br>" + play.artist +"</li>"
-                                }
-                                playlistT += "</ol>"
-                                console.log(playlistT)
-                                bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
-                                    answerText + "</b>"+playlistT+"</span></div>";
-
-                                //로딩 삭제
-                                loading.remove()
-                                // 답변 넣기
-                                $chatbox.append(bottext);
-                    
-                                // 스크롤 조정하기
-                                $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
-                            }
-                        })
-                    // 재생목록 추가
-                    }else if(response.Intent == '재생목록 추가'){
-                        track = response.TRACK
-                        $.ajax({
-                            url: "{% url 'Music:searchlist' track=12345 %}".replace(/12345/, track),
-                            success:function(response){
-                                song = response.data.tracks[0].track
-                                artist = response.data.tracks[0].artist
-                                console.log(`${song} - ${artist} 재생목록에 추가`)
-                                $.ajax({
-                                    url: `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${song} ${artist} audio&type=video&key=`+api_key,
-                                    datatype:'json',
-                                    success:function(response){
-                                        var videoId = response.items[0].id.videoId
-                                        dataname = song.replace('&', '953964')
-                                        $.ajax({
-                                            url: ("{% url 'User:addPlaylist' %}?youtube=12345&track="+dataname+"&artist="+artist).replace(/12345/, videoId.toString()),
-                                            datatype:'json',
-                                            success:function(response){
-                                                loading.remove()
-                                                $chatbox.append(bottext).animate({scrollTop: $chatbox.prop('scrollHeight')})
-                                            }
-                                        })
-                                    }
-                                })
-                            }
-                        })
-                    // 재생목록에서 음악 삭제
-                    }else if(response.Intent == '재생목록 삭제'){
-                        track = response.TRACK
-                        $.ajax({
-                            url: "{% url 'User:deletePlaylist' track=12345 %}".replace(/12345/, track),
-                            success(response){
-                                if(response.data == 'success'){
-                                    console.log(track+" 플레이리스트에서 삭제")
-                                    loading.remove()
-                                    $chatbox.append(bottext).animate({scrollTop: $chatbox.prop('scrollHeight')})
-                                }else{
-                                    console.log(track+" 플레이리스트에서 삭제 실패")
-                                    bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
-                                        track + " 은 재생목록에 없는 곡이에요.</b></span></div>"
-                                    loading.remove()
-                                    $chatbox.append(bottext).animate({scrollTop: $chatbox.prop('scrollHeight')})
-                                }
-                            }
-                        })
-                    // 음악정지
-                    }else if(response.Intent == '음악정지'){
-                        // 내리기
-                        if($playerdiv.css('display')=='block'){
-                            $playerdiv.slideToggle()
-                            $player.attr('src', '')
-                        }else{
-                            bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
-                                "음악 재생 중이 아닙니다." + "</b></span></div>"
+                    button_str += "</div>"
+                    //로딩 삭제
+                    loading.remove()
+                    // 답변 넣기
+                    $chatbox.append(bottext).append(button_str);
+                    // 스크롤 조정하기
+                    $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+                }else if(response.Intent == '음악추천'){
+                    $.ajax({
+                        url: "{% url 'Music:recommend' "+jsonData.query+" %}",
+                        success: function(response){
+                            console.log(response)
                         }
+                    })
+                }
+                // 재생목록 재생
+                else if(response.Intent == '재생목록 재생'){
+                    $.ajax({
+                        url: "{% url 'User:getPlaylist' %}",
+                        success: function(playR){
+                            $player.attr('src', 'https://www.youtube.com/embed?autoplay=1&playlist='+playR.playlist+'&autoplay=1&loop=1')
 
-                        //로딩 삭제
-                        loading.remove()
-                        // 답변 넣기
-                        $chatbox.append(bottext);
-                        // 스크롤 조정하기
-                        $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
-                    // 음악취향
-                    }else if(response.Intent == '음악취향'){
-                        recommend_music = JSON.parse(response.recommend)
-                        recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.most_mood}</p>
-                            <table style="border-radius:10px;margin-bottom:3%;color:white;padding:3%;background:#424242;text-align:center;display:table;table-layout:fixed;">
-                                <tr>
-                                    <td style='vertical-align:middle' rowspan=2 colspan=3><img src=${recommend_music.image}/></td>
-                                    <td style='vertical-align:middle' colspan=5>${recommend_music.title}</td>
-                                </tr>
-                                <tr>
-                                    <td style='vertical-align:middle' colspan=5>${recommend_music.artists}</td>
-                                </tr>
-                                <tr>
-                                    <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", true)'><i class="fa-solid fa-play"></i></td>
-                                    <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", false)'><i class="fa-solid fa-plus"></i></td>
-                                    <td colspan=2 style='background-image: url("/static/images/MANGO.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
-                                    onclick='info_("${recommend_music.artists}","${recommend_music.title}")'></td>
-                                    <td colspan=2 style='background-image: url("/static/images/MELON.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
-                                    onclick='window.open("${recommend_music.url}")'></td>
-                                </tr>
-                            </table>`
+                            //로딩 삭제
+                            loading.remove()
+                            // 답변 넣기
+                            $chatbox.append(bottext);
+                            // 스크롤 조정하기
+                            $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+
+                            // 띄우기
+                            if($playerdiv.css('display')=='none'){
+                            $playerdiv.slideToggle()
+                            }
+                        }
+                    })
+                // 재생목록 조회
+                }else if(response.Intent == '재생목록 조회'){
+                    $.ajax({
+                        url: "{% url 'User:showPlaylist' %}",
+                        success: function(playR){
+                            playlistT = "<ol>"
+                            for(play of playR.playlist){
+                                playlistT += "<li style='border-radius:10px;background:#424242;margin-bottom:3%;color:white;padding:3%;'>"+ play.track.replace('953964', '&') + "<br>" + play.artist +"</li>"
+                            }
+                            playlistT += "</ol>"
+                            console.log(playlistT)
+                            bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+                                answerText + "</b>"+playlistT+"</span></div>";
+
+                            //로딩 삭제
+                            loading.remove()
+                            // 답변 넣기
+                            $chatbox.append(bottext);
+                
+                            // 스크롤 조정하기
+                            $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+                        }
+                    })
+                // 재생목록 추가
+                }else if(response.Intent == '재생목록 추가'){
+                    track = response.TRACK
+                    $.ajax({
+                        url: "{% url 'Music:searchlist' track=12345 %}".replace(/12345/, track),
+                        success:function(response){
+                            song = response.data.tracks[0].track
+                            artist = response.data.tracks[0].artist
+                            console.log(`${song} - ${artist} 재생목록에 추가`)
+                            $.ajax({
+                                url: `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${song} ${artist} audio&type=video&key=`+api_key,
+                                datatype:'json',
+                                success:function(response){
+                                    var videoId = response.items[0].id.videoId
+                                    dataname = song.replace('&', '953964')
+                                    $.ajax({
+                                        url: ("{% url 'User:addPlaylist' %}?youtube=12345&track="+dataname+"&artist="+artist).replace(/12345/, videoId.toString()),
+                                        datatype:'json',
+                                        success:function(response){
+                                            loading.remove()
+                                            $chatbox.append(bottext).animate({scrollTop: $chatbox.prop('scrollHeight')})
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                // 재생목록에서 음악 삭제
+                }else if(response.Intent == '재생목록 삭제'){
+                    track = response.TRACK
+                    $.ajax({
+                        url: "{% url 'User:deletePlaylist' track=12345 %}".replace(/12345/, track),
+                        success(response){
+                            if(response.data == 'success'){
+                                console.log(track+" 플레이리스트에서 삭제")
+                                loading.remove()
+                                $chatbox.append(bottext).animate({scrollTop: $chatbox.prop('scrollHeight')})
+                            }else{
+                                console.log(track+" 플레이리스트에서 삭제 실패")
+                                bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+                                    track + " 은 재생목록에 없는 곡이에요.</b></span></div>"
+                                loading.remove()
+                                $chatbox.append(bottext).animate({scrollTop: $chatbox.prop('scrollHeight')})
+                            }
+                        }
+                    })
+                // 음악정지
+                }else if(response.Intent == '음악정지'){
+                    // 내리기
+                    if($playerdiv.css('display')=='block'){
+                        $playerdiv.slideToggle()
+                        $player.attr('src', '')
+                    }else{
                         bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+<<<<<<< Updated upstream
                             recommend_text+"</span></div>";
                         //로딩 삭제
                         loading.remove()
@@ -392,40 +392,101 @@
                                 })
                             }
                         })
+=======
+                            "음악 재생 중이 아닙니다." + "</b></span></div>"
+                    }
+>>>>>>> Stashed changes
 
-                    // 검색
-                    }else if(response.Intent == "검색"){
-                        track = response.TRACK 
-                        $.ajax({
-                            url: "{% url 'Music:searchlist' track=12345 %}".replace(/12345/, track),
-                            success:function(response){
-                                console.log(response)
-                                result = $("<div style='margin:2% 0%;padding: 2%;text-align:left;background:#ffcd48;border-radius:10px;display:inline-block;'></div>")
-                                if(response.data.artist){
-                                    console.log('검색결과에 아티스트 있음')
-                                    result.append(`
-                                    <h3 style='margin:0;'>가수 검색 결과</h3>
-                                    <hr style='margin: 2% 0%;'>
-                                    <div class="artistresult" style='text-align:center;background-color:#424242;color:white;display:inline-block;padding: 2%;border-radius:10px;margin-bottom:2%;'
-                                    onclick="$('#iframe').attr('src', '{% url "Music:search" %}?type=artist&item=${response.data.artist.name}')">
-                                        <img src='${response.data.artist.image}' width=120 height=120 style='border-radius:10px;'/>
-                                        <p style='margin:0;'>${response.data.artist.name}</p>
-                                    </div>
-                                    `)
+                    //로딩 삭제
+                    loading.remove()
+                    // 답변 넣기
+                    $chatbox.append(bottext);
+                    // 스크롤 조정하기
+                    $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+                // 음악취향
+                }else if(response.Intent == '음악취향'){
+                    recommend_music = JSON.parse(response.recommend)
+                    recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.most_mood}</p>
+                        <table style="border-radius:10px;margin-bottom:3%;color:white;padding:3%;background:#424242;text-align:center;display:table;table-layout:fixed;">
+                            <tr>
+                                <td style='vertical-align:middle' rowspan=2 colspan=3><img src=${recommend_music.image}/></td>
+                                <td style='vertical-align:middle' colspan=5>${recommend_music.title}</td>
+                            </tr>
+                            <tr>
+                                <td style='vertical-align:middle' colspan=5>${recommend_music.artists}</td>
+                            </tr>
+                            <tr>
+                                <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", true)'><i class="fa-solid fa-play"></i></td>
+                                <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", false)'><i class="fa-solid fa-plus"></i></td>
+                                <td colspan=2 style='background-image: url("/static/images/MANGO.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
+                                onclick='info_("${recommend_music.artists}","${recommend_music.title}")'></td>
+                                <td colspan=2 style='background-image: url("/static/images/MELON.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
+                                onclick='window.open("${recommend_music.url}")'></td>
+                            </tr>
+                        </table>`
+                    bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+                        recommend_text+"</span></div>";
+                    //로딩 삭제
+                    loading.remove()
+                    $chatbox.append(bottext)
+                    $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+                // 음악 재생
+                }else if(response.Intent == '음악재생'){
+                    track = response.TRACK
+                    $.ajax({
+                        url: "{% url 'Music:searchlist' track=12345 %}".replace(/12345/, track),
+                        success:function(response){
+                            song = response.data.tracks[0].track
+                            artist = response.data.tracks[0].artist
+                            console.log(`${song} - ${artist} 재생목록에 추가`)
+                            api_key = 'AIzaSyD-MlnJmv8El7gQLdQNALcPxlmOgXkuBMY'
+                            $.ajax({
+                                url: `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${song} ${artist} audio&type=video&key=`+api_key,
+                                datatype:'json',
+                                success:function(response){
+                                    var videoId = response.items[0].id.videoId
+                                    $.ajax({
+                                        url: ("{% url 'User:addPlaylist' %}?youtube=12345&track="+song+"&artist="+artist).replace(/12345/, videoId.toString()),
+                                        datatype:'json',
+                                        success:function(response){
+                                            //로딩 삭제
+                                            loading.remove()
+                                            $chatbox.append(bottext)
+                                            $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+        
+                                            $player.attr('src', 'https://www.youtube.com/embed?autoplay=1&playlist='+response.data+'&autoplay=1&loop=1')
+                                            // 띄우기
+                                            if($playerdiv.css('display')=='none'){
+                                                $playerdiv.slideToggle()
+                                            }
+                                        }
+                                    })
                                 }
+                            })
+                        }
+                    })
+
+                // 검색
+                }else if(response.Intent == "검색"){
+                    track = response.TRACK 
+                    $.ajax({
+                        url: "{% url 'Music:searchlist' track=12345 %}".replace(/12345/, track),
+                        success:function(response){
+                            console.log(response)
+                            result = $("<div style='margin:2% 0%;padding: 2%;text-align:left;background:#ffcd48;border-radius:10px;display:inline-block;'></div>")
+                            if(response.data.artist){
+                                console.log('검색결과에 아티스트 있음')
                                 result.append(`
-                                    <h3 style='margin:0;'>곡 검색 결과</h3>
-                                    <hr style='margin: 2% 0%;'>
+                                <h3 style='margin:0;'>가수 검색 결과</h3>
+                                <hr style='margin: 2% 0%;'>
+                                <div class="artistresult" style='text-align:center;background-color:#424242;color:white;display:inline-block;padding: 2%;border-radius:10px;margin-bottom:2%;'
+                                onclick="$('#iframe').attr('src', '{% url "Music:search" %}?type=artist&item=${response.data.artist.name}')">
+                                    <img src='${response.data.artist.image}' width=120 height=120 style='border-radius:10px;'/>
+                                    <p style='margin:0;'>${response.data.artist.name}</p>
+                                </div>
                                 `)
-                                var tracktable = $('<table style="background:#424242;border-radius:10px;color:white;" id="tracktable"></table>')
-                                for(trackresult of response.data.tracks){
-                                    tracktable.append(`<tr onclick="$('iframe').attr('src', '{% url "Music:search" %}?type=track&item=${trackresult.track}&artist=${trackresult.artist}')"><td>${trackresult.track} - ${trackresult.artist}</td><tr>`)
-                                }
-                                //로딩 삭제
-                                loading.remove()
-                                $chatbox.append(bottext).append(result.append(tracktable)).animate({scrollTop: $chatbox.prop('scrollHeight')})
-                                console.log(result)
                             }
+<<<<<<< Updated upstream
                         })
                     // 기능 소개
                     }else if(response.Intent == "기능소개"){
@@ -449,22 +510,61 @@
                         button_str += `<a class='button small primary' style='margin: 3px;' href="#">${inte}</a>`
                     }
                     button_str += "</div>"
+=======
+                            result.append(`
+                                <h3 style='margin:0;'>곡 검색 결과</h3>
+                                <hr style='margin: 2% 0%;'>
+                            `)
+                            var tracktable = $('<table style="background:#424242;border-radius:10px;color:white;" id="tracktable"></table>')
+                            for(trackresult of response.data.tracks){
+                                tracktable.append(`<tr onclick="$('iframe').attr('src', '{% url "Music:search" %}?type=track&item=${trackresult.track}&artist=${trackresult.artist}')"><td>${trackresult.track} - ${trackresult.artist}</td><tr>`)
+                            }
+                            //로딩 삭제
+                            loading.remove()
+                            $chatbox.append(bottext).append(result.append(tracktable)).animate({scrollTop: $chatbox.prop('scrollHeight')})
+                            console.log(result)
+                        }
+                    })
+                // 기능 소개
+                }else if(response.Intent == "기능소개"){
+                    info = $(`<img src="/static/images/func.png" style="width:100%; border-radius:10px; padding: 3%; background-color:#ffcd48;"/>`)
+                    loading.remove()
+                    $chatbox.append(info).animate({scrollTop: $chatbox.prop('scrollHeight')})
+                }else{
+>>>>>>> Stashed changes
                     //로딩 삭제
                     loading.remove()
-                    // 답변 넣기
-                    $chatbox.append(bottext).append(button_str);
-                    // 스크롤 조정하기
+                    $chatbox.append(bottext);
                     $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
                 }
             }
         })
     }
+    function retrain(intent, query){
+        console.log(intent, query)
+        $.ajax({
+            url:`{% url 'Music:update' %}`,
+            type:"GET",
+            data:{'query':query,'intent':intent},
+            dataType:"JSON",
+            contentType:'application/json; charset=utf-8',
+            success: function(response){
+                if(response.data == "성공"){
+                    alert("성공!!!!!!!!!!!!!!!!!!!!")
+                }else{
+                    alert("실패 ....")
+                }
+            }
+        })
+
+    }
+    {% comment %} ?query=${query}&intent=${intent} {% endcomment %}
 </script>
 <style>
     ol > li::marker{
         color: #424242;
         font-weight: bold;
-    }
+    } 
     #tracktable{
         margin: 0;
     }

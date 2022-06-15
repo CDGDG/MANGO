@@ -7,6 +7,14 @@ import base64
 import json
 from user.views import getLyrics
 
+# 재학습 
+import pandas as pd
+import os
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+
+
+
 access_token = 'BQDAP9FCoLE96LUprlBGFHlaIJp0jkZavuJB3_ws7Su7qtt3eIijRHmzzjMUkC-C2SidtBnfy6gguUpottg'
 
 def home(request):
@@ -174,3 +182,23 @@ def searchlist(request, track):
                         ][:3]
 
     return JsonResponse({'data': context})
+
+def update_data(request):
+    query = request.GET.get('query')
+    intent = request.GET.get('intent')
+    data = pd.DataFrame([query],columns = ['sentence'])
+    data['label'] = intent
+    print("===================",query,intent,"=================================")
+    retrain_file = 'static/retrain_data/retrain_data.csv'
+    try:
+        retrain_data = pd.read_csv(retrain_file)
+    except:
+        data.to_csv(r'./static/retrain_data/retrain_data.csv')
+        context = {'data':"성공"}
+        return JsonResponse(context)
+  
+    result = pd.concat([retrain_data,data])
+    result.to_csv(r'./static/retrain_data/retrain_data.csv',index=False)
+    context = {'data':"성공"}
+
+    return JsonResponse(context)
