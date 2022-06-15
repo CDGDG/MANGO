@@ -31,6 +31,7 @@ Hello	NNP
 안아줘	NNP
 MarryMe	NNP
 키보드(Prod.ByHansen)	NNP
+아이유  NNP
 Believer	NNP
 IfYouWereMe	NNP
 WowThing	NNP

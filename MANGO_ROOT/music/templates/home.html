@@ -122,6 +122,12 @@
 
     function send_message(){
         const chattext = $('#chattext').val().trim()
+
+        if("{{request.session.user}}" == ""){
+            alert('로그인을 먼저 진행해주세요!')
+            location.href = "{% url 'User:login' %}"
+            return;
+        }
     
         // 입력한 메세지가 없으면 리턴
         if(chattext == ""){
@@ -132,7 +138,7 @@
         // 입력한 채팅 화면에 출력
         const addtext = "<div style='margin:2% 0%;text-align:right;'><span style='padding:1% 2%;background-color:#ff8b77;border-radius:10px;color:white;display:inline-block'>" + 
             (chattext.length>15?chattext.split('').reduce((acc,cur,i)=>{
-                return acc+cur+(i%15==0?"<br>":"")
+                return acc+cur+(i%25==0?"<br>":"")
             }) :chattext)  + "</span></div>";
         $("#chatbox").append(addtext);
         $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
@@ -153,7 +159,7 @@
             playlist: JSON.parse(playlist_str),
         }
         $.ajax({
-            url: 'http://127.0.0.10:5000/query/MANGO',
+            url: '127.0.0.10:5000/query/MANGO',
             type: "POST",
             data: JSON.stringify(jsonData),
             dataType: 'JSON', // 응답받을 데이터 타입
@@ -162,9 +168,10 @@
             success: function(response){
                 // response.Answer 에 담겨있다.
                 console.log(response)
-                answerText = (response.Answer.length>15?response.Answer.split('').reduce((acc,cur,i)=>{
-                    return acc+cur+(i%20==0?"<br>":"")
-                }) :response.Answer)
+                //answerText = (response.Answer.length>15?response.Answer.split('').reduce((acc,cur,i)=>{
+                //    return acc+cur+(i%20==0?"<br>":"")
+                //}) :response.Answer)
+                answerText = response.Answer    
 
                 answerText = answerText.replace("user", "{{request.session.user.userid}}")
     
@@ -189,16 +196,35 @@
                         $chatbox.append(bottext).append(button_str);
                         // 스크롤 조정하기
                         $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
+                    // 감정 추천
                     }else if(response.Intent == '음악추천'){
-                        $.ajax({
-                            url: "{% url 'Music:recommend' "+jsonData.query+" %}",
-                            success: function(response){
-                                console.log(response)
-                            }
-                        })
-                    }
+                        recommend_music = JSON.parse(response.recommend)
+                        recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.emotion} 에 관련된 곡 추천드려요!</p>
+                            <table style="border-radius:10px;margin-bottom:3%;color:white;padding:3%;background:#424242;text-align:center;display:table;table-layout:fixed;">
+                                <tr>
+                                    <td style='vertical-align:middle' rowspan=2 colspan=3><img src=${recommend_music.image}/></td>
+                                    <td style='vertical-align:middle' colspan=5>${recommend_music.title}</td>
+                                </tr>
+                                <tr>
+                                    <td style='vertical-align:middle' colspan=5>${recommend_music.artists}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", true)'><i class="fa-solid fa-play"></i></td>
+                                    <td colspan=2 onclick='play_("${recommend_music.artists}","${recommend_music.title}", false)'><i class="fa-solid fa-plus"></i></td>
+                                    <td colspan=2 style='background-image: url("/static/images/MANGO.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
+                                    onclick='info_("${recommend_music.artists}","${recommend_music.title}")'></td>
+                                    <td colspan=2 style='background-image: url("/static/images/MELON.png"); background-size:contain;background-repeat: no-repeat;background-position:center;'
+                                    onclick='window.open("${recommend_music.url}")'></td>
+                                </tr>
+                            </table>`
+                        bottext = "<div style='margin:2% 0%;text-align:left;'><span style='padding:1% 2%;background-color:#ffcd48;border-radius:10px;color:#424242;display:inline-block'><b>" + 
+                            recommend_text+"</span></div>";
+                        //로딩 삭제
+                        loading.remove()
+                        $chatbox.append(bottext)
+                        $chatbox.animate({scrollTop: $chatbox.prop('scrollHeight')})
                     // 재생목록 재생
-                    else if(response.Intent == '재생목록 재생'){
+                    }else if(response.Intent == '재생목록 재생'){
                         $.ajax({
                             url: "{% url 'User:getPlaylist' %}",
                             success: function(playR){
@@ -306,7 +332,7 @@
                     // 음악취향
                     }else if(response.Intent == '음악취향'){
                         recommend_music = JSON.parse(response.recommend)
-                        recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.most_mood}</p>
+                        recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.most_mood} 에 관련된 곡 추천드려요!</p>
                             <table style="border-radius:10px;margin-bottom:3%;color:white;padding:3%;background:#424242;text-align:center;display:table;table-layout:fixed;">
                                 <tr>
                                     <td style='vertical-align:middle' rowspan=2 colspan=3><img src=${recommend_music.image}/></td>
@@ -333,7 +359,7 @@
                     // 날씨추천
                     }else if(response.Intent == '날씨'){
                         recommend_music = JSON.parse(response.recommend)
-                        recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.Weather}</p>
+                        recommend_text = `<p style='border-radius:10px;background:#424242;margin-bottom:3%;margin-top:3%;color:white;padding:3%;'>${response.Weather} 에 관련된 곡 추천드려요!</p>
                             <table style="border-radius:10px;margin-bottom:3%;color:white;padding:3%;background:#424242;text-align:center;display:table;table-layout:fixed;">
                                 <tr>
                                     <td style='vertical-align:middle' rowspan=2 colspan=3><img src=${recommend_music.image}/></td>

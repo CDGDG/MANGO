@@ -34,23 +34,6 @@ def search(request):
     type = request.GET.get('type')
     item = request.GET.get('item')
 
-    req = requests.get(f'https://api.spotify.com/v1/search?query={item}&type={type}&access_token='+access_token)
-    if req.status_code != 200:
-        client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
-        client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
-        endpoint = 'https://accounts.spotify.com/api/token'
-
-        encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
-
-        headers = {"Authorization": 'Basic {}'.format(encoded)}
-        payload = {'grant_type': 'client_credentials'}
-
-        response = requests.post(endpoint, data=payload, headers=headers)
-        access_token = json.loads(response.text)['access_token']
-        req = requests.get(f'https://api.spotify.com/v1/search?query={item}&type={type}&access_token='+access_token)
-
-    data = req.json()
-
     context = {}
     try:
         if type=='album':
@@ -63,26 +46,11 @@ def search(request):
             context['artist'] = melon_data['artist']
             context['tracks'] = melon_data['tracks']
         elif type=='artist':
-            d = data['artists']['items'][0]
-            req2 = requests.get(f'https://api.spotify.com/v1/artists/{d["id"]}/top-tracks?market=KR&access_token={access_token}')
-            if req2.status_code != 200:
-                client_id = "05bb41a7d2c246ee969af53ccc2b1e8f"
-                client_key = '5f7dea92f9aa4b7aa9fe0917d848ebd7'
-                endpoint = 'https://accounts.spotify.com/api/token'
-
-                encoded = base64.b64encode("{}:{}".format(client_id, client_key).encode('utf-8')).decode('ascii')
-
-                headers = {"Authorization": 'Basic {}'.format(encoded)}
-                payload = {'grant_type': 'client_credentials'}
-
-                response = requests.post(endpoint, data=payload, headers=headers)
-                access_token = json.loads(response.text)['access_token']
-                req2 = requests.get(f'https://api.spotify.com/v1/artists/{d["id"]}/top-tracks?market=KR&access_token={access_token}')
-            data2 = req2.json() 
-            context['image'] = d['images'][1]['url']
-            context['name'] = d['name']
-            context['genre'] = d['genres']
-            context['tracks'] = data2['tracks']
+            melon_data = getMelonArtist(item)
+            print(melon_data)
+            context['image'] = melon_data['image']
+            context['name'] = melon_data['name']
+            context['tracks'] = melon_data['tracks']
         elif type=='track':
             artistget = request.GET.get('artist')
             melon_data = getMelonInfo(item, artistget)
@@ -124,6 +92,29 @@ def getMelonInfo(track, artist):
     except Exception as e:
         return ('곡 정보 불러오기 실패', e)
     return data
+
+def getMelonArtist(artist):
+    q_url = 'https://www.melon.com/search/artist/index.htm?q='+artist
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+    }
+    data = {}
+    try:
+        artistid = BeautifulSoup(requests.get(q_url, headers=headers).text, 'html.parser').select_one('#pageList .d_artist_list ul li .wrap_atist12 button.btn_join_fan')['data-artist-no']
+        url = f"https://www.melon.com/artist/song.htm?artistId={artistid}#params%5BorderBy%5D=POPULAR_SONG_LIST&params%5B"
+        soup = BeautifulSoup(requests.get(url, headers=headers).text, 'html.parser')
+        data['image'] = soup.select_one('#artistImgArea img').get('src')
+        data['name'] = soup.select_one('.title_atist').text.replace('아티스트명', '')
+        data['tracks'] = [{
+            'title': tr.select_one('.ellipsis a.fc_gray').text,
+            'artist': tr.select_one('#artistName a.fc_mgray').text,
+            'album': tr.select_one('.ellipsis:not(#artistName) a.fc_mgray').text,
+        }
+        for tr in soup.select('#frm div.tb_list.d_song_list.songTypeOne table tbody tr')]
+    except Exception as e:
+        return ('아티스트 정보 불러오기 실패', e)
+    return data
+
 
 def getMelonAlbum(album, artist):
     album2 = album.replace('953964', '&amp;')

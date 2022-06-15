@@ -18,7 +18,6 @@
                 <table class="alt">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>title</th>
                             <th>album</th>
                             <th>artist</th>
@@ -28,9 +27,8 @@
                         {% for track in data.tracks %}
                         <tr>
                             <!-- ['album']['images'][1]['url'] -->
-                            <td><a href='{% url "Music:search" %}?type=album&item={{track.album.name}}&artist={{data.name}}'><img src="{{track.album.images.2.url}}" alt="{{track.album.name}}"></a></td>
-                            <td><a href='{% url "Music:search" %}?type=track&item={{track.name}}&artist={{data.name}}'>{{track.name}}</a></td>
-                            <td><a href='{% url "Music:search" %}?type=album&item={{track.album.name}}&artist={{data.name}}'>{{track.album.name}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=track&item={{track.title}}&artist={{data.name}}'>{{track.title}}</a></td>
+                            <td><a href='{% url "Music:search" %}?type=album&item={{track.album}}&artist={{data.name}}'>{{track.album}}</a></td>
                             <td><a href='{% url "Music:search" %}?type=artist&item={{data.name}}'>{{data.name}}</a></td>
                         </tr>
                         {% endfor %}

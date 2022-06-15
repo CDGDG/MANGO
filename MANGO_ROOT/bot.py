@@ -27,7 +27,7 @@ ner_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/ner_dictio
 
 weather_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/chatbot_dict.bin'), userdic=os.path.abspath('utils/weather2.txt'))
 
-emotion_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/chatbot_dict.bin'), userdic=os.path.abspath('utils/emotion.txt'))
+emotion_p = Preprocess(word2index_dic=os.path.abspath('./train_tools/dict/chatbot_dict.bin'))
 
 # 의도 파악 모델
 intent = IntentModel(model_name='models/intent/intent_model.h5', preprocess=intent_p)
@@ -79,8 +79,8 @@ def to_client(conn, addr, params):
         emotion_name = emotion.labels[emotion_predict]
 
         if intent_predict == 0:
-
             print('감정의도:', emotion_name)
+            emotion_name = {'혐오': '차분', '중립': '편안'}.get(emotion_name, emotion_name)
             send_json_data_str['recommend'] = json.dumps(get_recommend_track(emotion_name), ensure_ascii=False)
 
 
@@ -99,7 +99,8 @@ def to_client(conn, addr, params):
             pd.DataFrame([[i, moodslist.count(i)] for i in mood.labels]).set_index(0)[1]
             # 음악 추천
             most_mood = max(moodslist, key=moodslist.count)
-            send_json_data_str['recommend'] = json.dumps(get_recommend_track(most_mood), ensure_ascii=False)
+            if most_mood:
+                send_json_data_str['recommend'] = json.dumps(get_recommend_track(most_mood), ensure_ascii=False)
             send_json_data_str['most_mood'] = most_mood
 
             
@@ -128,7 +129,8 @@ def to_client(conn, addr, params):
             # 날씨로 음악 추천
             weather_dic = {'맑': '맑음', '흐리': '흐림',}
             ner_weather = weather_dic.get(ner_weather, ner_weather)
-            send_json_data_str['recommend'] = json.dumps(get_recommend_track(ner_weather), ensure_ascii=False)
+            if ner_weather:
+                send_json_data_str['recommend'] = json.dumps(get_recommend_track(ner_weather), ensure_ascii=False)
             print('날씨: ',ner_weather)
 
         # 답변 검색, 분석된 의도와 개체명을 이용해 학습 DB 에서 답변을 검색

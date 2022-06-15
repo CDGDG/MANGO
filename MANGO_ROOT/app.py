@@ -6,6 +6,7 @@ import json
 # 이전에 만든 챗봇 엔진 서버에서 설정한 포트를 사용해야 한다
 host = "127.0.0.1"  # 챗봇 엔진 서버 IP 주소
 port = 5050  # 챗봇 엔진 서버 통신 포트
+VERIFY_TOKEN = 'django'
  
 # Flask 어플리케이션
 app = Flask(__name__)
@@ -52,9 +53,9 @@ def query(bot_type):
             # 카카오 스킬 처리
             pass
 
-        elif bot_type == 'NAVER':
-            # 네이버톡톡 Web hook 처리
-            pass
+        elif bot_type == 'FACEBOOK':
+            # 페이스북 Web hook 처리
+            return 'facebook'
 
         else:
             # 정의되지 않으면 404 리턴
@@ -64,6 +65,16 @@ def query(bot_type):
         # 오류 발생시 500 에러
         abort(500)
 
- 
+@app.route('/', methods=['GET'])
+def webhook():
+    if request.method == 'GET':
+        if request.args.get('hub.verify_token') == VERIFY_TOKEN:
+            return request.args.get('hub.challenge')
+        else:
+            return "Hello"
+    else:
+        return "200"
+    
+
 if __name__=="__main__":
     app.run(debug=True, host='127.0.0.10', port=5000)
