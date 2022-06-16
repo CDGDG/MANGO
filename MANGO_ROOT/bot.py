@@ -93,12 +93,14 @@ def to_client(conn, addr, params):
             # 사용자의 플레이리스트를 받아와야함..
             moodslist = []
             playlist = recv_json_data['Playlist']
+            print('플레이리스트 길이:', len(playlist))
             # 플레이리스트 취향 분석
             for lyric in [track['lyrics'] for track in playlist.values()]:
                 moodslist.append(mood.predict_mood(lyric))
             # 그래프 만들기
             pd.DataFrame([[i, moodslist.count(i)] for i in mood.labels]).set_index(0)[1]
             # 음악 추천
+            print('플레이리스트 분석:', moodslist)
             most_mood = max(moodslist, key=moodslist.count)
             if most_mood:
                 send_json_data_str['recommend'] = json.dumps(get_recommend_track(most_mood), ensure_ascii=False)
